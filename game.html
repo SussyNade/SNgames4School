@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNGames</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #1a1a2e;
+      color: white;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      background: #16213e;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .topbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .topbar a:hover { opacity: 1; }
+
+    .topbar span {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ÁREA DO JOGO */
+    .game-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: black;
+      position: relative;
+    }
+
+    .game-area iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* TELA DE JOGO EXTERNO */
+    .external-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .external-screen img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .external-screen h2 {
+      font-size: 28px;
+    }
+
+    .external-screen p {
+      opacity: 0.6;
+      font-size: 14px;
+    }
+
+    .play-btn {
+      background: #e94560;
+      color: white;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .play-btn:hover { background: #c73652; }
+
+    /* BARRA LATERAL */
+    .sidebar {
+      width: 220px;
+      background: #16213e;
+      overflow-y: auto;
+      flex-shrink: 0;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar h3 {
+      font-size: 13px;
+      opacity: 0.6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .sidebar-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+      background: #0f3460;
+      border-radius: 8px;
+      padding: 8px;
+      transition: background 0.2s;
+    }
+
+    .sidebar-card:hover { background: #1a4a7a; }
+
+    .sidebar-card img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-card span {
+      font-size: 13px;
+      line-height: 1.3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="/">← Voltar</a>
+  <span id="game-title">Carregando...</span>
+</div>
+
+<div class="main">
+  <div class="game-area" id="game-area"></div>
+
+  <div class="sidebar">
+    <h3>Jogar depois</h3>
+
+    <a href="game.html?title=Geometry Dash&type=iframe&url=https://geometrydash.com/game/index.html&thumb=assets/thumbnail/Geometrydash.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Geometrydash.webp" alt="Geometry Dash">
+      <span>Geometry Dash</span>
+    </a>
+    <a href="game.html?title=Stumble Guys&type=iframe&url=https://stumble-guys.io/&thumb=assets/thumbnail/Stumbleguys.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Stumbleguys.webp" alt="Stumble Guys">
+      <span>Stumble Guys</span>
+    </a>
+    <a href="game.html?title=The Useless Web&type=iframe&url=https://theuselessweb.com/&thumb=assets/thumbnail/Uselessweb.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Uselessweb.webp" alt="The Useless Web">
+      <span>The Useless Web</span>
+    </a>
+    <a href="game.html?title=Friday Night Funkin&type=iframe&url=https://ninja-muffin24.itch.io/funkin&thumb=assets/thumbnail/FNF.webp" class="sidebar-card">
+      <img src="assets/thumbnail/FNF.webp" alt="Friday Night Funkin">
+      <span>Friday Night Funkin</span>
+    </a>
+    <a href="game.html?title=Territorial.io&type=iframe&url=https://territorial.io/&thumb=assets/thumbnail/Territorial.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Territorial.webp" alt="Territorial.io">
+      <span>Territorial.io</span>
+    </a>
+    <a href="game.html?title=Little Alchemy 2&type=iframe&url=https://littlealchemy2.com/&thumb=assets/thumbnail/LittleAlchemist.webp" class="sidebar-card">
+      <img src="assets/thumbnail/LittleAlchemist.webp" alt="Little Alchemy 2">
+      <span>Little Alchemy 2</span>
+    </a>
+    <a href="game.html?title=Krunker.io&type=iframe&url=https://krunker.io/&thumb=assets/thumbnail/Krunker.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Krunker.webp" alt="Krunker.io">
+      <span>Krunker.io</span>
+    </a>
+    <a href="game.html?title=Shell Shockers&type=iframe&url=https://shellshock.io/&thumb=assets/thumbnail/ShellShockers.webp" class="sidebar-card">
+      <img src="assets/thumbnail/ShellShockers.webp" alt="Shell Shockers">
+      <span>Shell Shockers</span>
+    </a>
+    <a href="game.html?title=Surviv.io&type=iframe&url=https://surviv.io/&thumb=assets/thumbnail/Surviv.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Surviv.webp" alt="Surviv.io">
+      <span>Surviv.io</span>
+    </a>
+    <a href="game.html?title=Deeeep.io&type=iframe&url=https://deeeep.io/&thumb=assets/thumbnail/Deeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Deeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep.webp" alt="Deeeep.io">
+      <span>Deeeep.io</span>
+    </a>
+    <a href="game.html?title=2048&type=self&url=games/2048/index.html&thumb=assets/thumbnail/Placeholder.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Placeholder.webp" alt="2048">
+      <span>2048</span>
+    </a>
+    <a href="game.html?title=Minecraft&type=external&url=https://eaglercraft.com/&thumb=assets/thumbnail/Minecraft.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Minecraft.webp" alt="Minecraft">
+      <span>Minecraft</span>
+    </a>
+    <a href="game.html?title=NEAL.FUN&type=external&url=https://neal.fun/&thumb=assets/thumbnail/Neal.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Neal.webp" alt="NEAL.FUN">
+      <span>NEAL.FUN</span>
+    </a>
+    <a href="game.html?title=Bloons TD 5&type=external&url=https://www.newgrounds.com/portal/view/610995&thumb=assets/thumbnail/BloonsTD5.webp" class="sidebar-card">
+      <img src="assets/thumbnail/BloonsTD5.webp" alt="Bloons TD 5">
+      <span>Bloons TD 5</span>
+    </a>
+    <a href="game.html?title=Cookie Clicker&type=external&url=https://orteil.dashnet.org/cookieclicker/&thumb=assets/thumbnail/CookieClicker.webp" class="sidebar-card">
+      <img src="assets/thumbnail/CookieClicker.webp" alt="Cookie Clicker">
+      <span>Cookie Clicker</span>
+    </a>
+    <a href="game.html?title=Wordle&type=external&url=https://www.nytimes.com/games/wordle/index.html&thumb=assets/thumbnail/Wordle.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Wordle.webp" alt="Wordle">
+      <span>Wordle</span>
+    </a>
+    <a href="game.html?title=Termo&type=external&url=https://term.ooo/&thumb=assets/thumbnail/Termo.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Termo.webp" alt="Termo">
+      <span>Termo</span>
+    </a>
+    <a href="game.html?title=Slither.io&type=external&url=https://slither.io/&thumb=assets/thumbnail/Slitherio.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Slitherio.webp" alt="Slither.io">
+      <span>Slither.io</span>
+    </a>
+    <a href="game.html?title=Agar.io&type=external&url=https://agar.io/&thumb=assets/thumbnail/Agar.webp" class="sidebar-card">
+      <img src="assets/thumbnail/Agar.webp" alt="Agar.io">
+      <span>Agar.io</span>
+    </a>
+    <a href="game.html?title=OpenGuessr&type=external&url=https://openguessr.com/&thumb=assets/thumbnail/openguessr.webp" class="sidebar-card">
+      <img src="assets/thumbnail/openguessr.webp" alt="OpenGuessr">
+      <span>OpenGuessr</span>
+    </a>
+    <a href="game.html?title=GarticPhone&type=external&url=https://garticphone.com/&thumb=assets/thumbnail/GarticP.webp" class="sidebar-card">
+      <img src="assets/thumbnail/GarticP.webp" alt="GarticPhone">
+      <span>GarticPhone</span>
+    </a>
+  </div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const title = params.get("title") || "Jogo";
+  const type = params.get("type") || "iframe";
+  const url = params.get("url") || "";
+  const thumb = params.get("thumb") || "";
+
+  document.getElementById("game-title").textContent = title;
+  document.title = title + " - SNGames";
+
+  const area = document.getElementById("game-area");
+
+  if (type === "iframe" || type === "self") {
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    iframe.allowFullscreen = true;
+    area.appendChild(iframe);
+  } else {
+    // externo
+    area.innerHTML = `
+      <div class="external-screen">
+        ${thumb ? `<img src="${thumb}" alt="${title}">` : ""}
+        <h2>${title}</h2>
+        <p>Este jogo é hospedado em um site externo.</p>
+        <a href="${url}" target="_blank" class="play-btn">Jogar ↗</a>
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>
