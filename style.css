@@ -1,0 +1,33 @@
+body {
+  background-color: #1a1a2e;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.card {
+  background-color: #16213e;
+  border-radius: 8px;
+  width: 200px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card p {
+  padding: 8px;
+  margin: 0;
+}
