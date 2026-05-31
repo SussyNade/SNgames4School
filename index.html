@@ -49,6 +49,7 @@
   </div>
 </div>
 
+<script src="rating_system.js"></script>
 <script src="jogos.js"></script>
 <script>
 function linkJogo(jogo) {
@@ -56,9 +57,13 @@ function linkJogo(jogo) {
 }
 
 function criarCard(jogo) {
+  const rating = getRatingHTML(jogo.rating, jogo.sistema || "BR");
   return `
     <a href="${linkJogo(jogo)}" class="card">
-      <img src="${jogo.thumb}" alt="${jogo.nome}">
+      <div class="thumb-wrapper">
+        <img src="${jogo.thumb}" alt="${jogo.nome}">
+        ${rating}
+      </div>
       <p>${jogo.nome}${jogo.type === 'external' ? ' ↗' : ''}</p>
     </a>
   `;
