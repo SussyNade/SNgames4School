@@ -578,7 +578,7 @@ const jogos = [
   {
     id: "thelaststand",
     nome: "The Last Stand",
-    thumb: "assets/thumbnail/Placeholder.webp",
+    thumb: "assets/thumbnail/laststand.webp",
     type: "self",
     url: "games/flash/thelaststand/index.html",
     rating: "A14",
@@ -673,7 +673,7 @@ const jogos = [
   {
     id: "cursedtreasure",
     nome: "Cursed Treasure",
-    thumb: "assets/thumbnail/Placeholder.webp",
+    thumb: "assets/thumbnail/cursedgame.webp",
     type: "self",
     url: "games/flash/cursedtreasure/index.html",
     rating: "A10",
@@ -682,7 +682,7 @@ const jogos = [
   {
     id: "gemcraft",
     nome: "Gemcraft",
-    thumb: "assets/thumbnail/Placeholder.webp",
+    thumb: "assets/thumbnail/GemCraft.webp",
     type: "self",
     url: "games/flash/gemcraft/index.html",
     rating: "A10",
@@ -691,25 +691,25 @@ const jogos = [
   {
     id: "infectonator",
     nome: "Infectonator",
-    thumb: "assets/thumbnail/Placeholder.webp",
+    thumb: "assets/thumbnail/infec.webp",
     type: "self",
     url: "games/flash/infectonator/index.html",
-    rating: "A14",
+    rating: "14",
     tags: ["flash", "estrategia", "casual"]
   },
   {
     id: "infectonator2",
     nome: "Infectonator 2",
-    thumb: "assets/thumbnail/Placeholder.webp",
+    thumb: "assets/thumbnail/infec2.webp",
     type: "self",
     url: "games/flash/infectonator2/index.html",
-    rating: "A14",
+    rating: "14",
     tags: ["flash", "estrategia", "casual"]
   },
   {
     id: "desconhecido2",
-    nome: " ",
-    thumb: "assets/thumbnail/Placeholder.webp",
+    nome: "Kingdom Rush",
+    thumb: "assets/thumbnail/kingdomrush.webp",
     type: "self",
     url: "games/flash/desconhecido2/index.html",
     rating: "6",
@@ -718,7 +718,7 @@ const jogos = [
   {
     id: "exhibitofsorrow",
     nome: "Exhibit Of Sorrows",
-    thumb: "assets/thumbnail/Placeholder.webp",
+    thumb: "assets/thumbnail/exibitofsmt.webp",
     type: "external",
     url: "https://adayofjoy.itch.io/exhibit-of-sorrows",
     rating: "A16",
