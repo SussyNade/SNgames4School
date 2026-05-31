@@ -577,7 +577,7 @@ const jogos = [
   },
   {
     id: "thelaststand",
-    nome: "The Last Stand (Vietnamese version)",
+    nome: "The Last Stand",
     thumb: "assets/thumbnail/Placeholder.webp",
     type: "self",
     url: "games/flash/thelaststand/index.html",
