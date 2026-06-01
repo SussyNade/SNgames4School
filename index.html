@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SNGames</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logosite/icon/16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logosite/icon/32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/logosite/icon/64x64.png">
 </head>
 <body>
 
 <nav class="navbar">
   <span class="logo">SN<span>Games</span></span>
   <input type="text" class="search" placeholder="🔍 Buscar jogos..." id="searchInput" oninput="buscar()">
+  <button class="tema-btn" onclick="toggleTema()" id="tema-btn" title="Alternar tema">🌙</button>
 </nav>
 
 <div id="search-results" class="search-results hidden"></div>
@@ -131,5 +135,23 @@ document.getElementById('modal').addEventListener('click', function(e) {
 });
 </script>
 
+
+<script>
+// Tema
+function aplicarTema(tema) {
+  document.documentElement.setAttribute('data-theme', tema);
+  document.getElementById('tema-btn').textContent = tema === 'light' ? '🌙' : '☀️';
+  localStorage.setItem('tema', tema);
+}
+
+function toggleTema() {
+  const atual = document.documentElement.getAttribute('data-theme') || 'dark';
+  aplicarTema(atual === 'dark' ? 'light' : 'dark');
+}
+
+// Aplica tema salvo
+const temaSalvo = localStorage.getItem('tema') || 'dark';
+aplicarTema(temaSalvo);
+</script>
 </body>
 </html>

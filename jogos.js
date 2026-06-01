@@ -718,7 +718,7 @@ const jogos = [
   {
     id: "exhibitofsorrow",
     nome: "Exhibit Of Sorrows",
-    thumb: "assets/thumbnail/exibitofsmt.webp",
+    thumb: "assets/thumbnail/exibitofsmt.webpq",
     type: "external",
     url: "https://adayofjoy.itch.io/exhibit-of-sorrows",
     rating: "A16",
