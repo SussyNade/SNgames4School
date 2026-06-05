@@ -47,7 +47,7 @@ const jogos = [
     url: "https://krunker.io/",
     rating: "A14",
     tags: ["io", "acao", "amigos", "alta"],
-    firefoxWarn: true   // bug de mouse no Firefox
+    requiresPointerLock: true
   },
   {
     id: "shellshock",
@@ -57,7 +57,7 @@ const jogos = [
     url: "https://shellshock.io/",
     rating: "A12",
     tags: ["io", "acao", "amigos"],
-    firefoxWarn: true   // bug de mouse no Firefox
+    requiresPointerLock: true
   },
   {
     id: "surviv",
@@ -559,10 +559,10 @@ const jogos = [
   },
   {
     id: "happywheels",
-    nome: "Happy Wheels (broken) (substitute with html version)",
+    nome: "Happy Wheels",
     thumb: "assets/thumbnail/HappyWheel.webp",
-    type: "self",
-    url: "games/flash/happywheels/index.html",
+    type: "external",
+    url: "https://totaljerkface.com/happy_wheels.tjf#game",
     rating: "A18",
     tags: ["flash", "acao", "casual"]
   },

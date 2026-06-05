@@ -14,7 +14,7 @@
 <nav class="navbar">
   <span class="logo">SN<span>Games</span></span>
   <input type="text" class="search" placeholder="🔍 Buscar jogos..." id="searchInput" oninput="buscar()">
-  <button class="tema-btn" onclick="toggleTema()" id="tema-btn" title="Alternar tema">🌙</button>
+  <button class="config-btn" onclick="abrirConfig()" title="Configurações">☰</button>
 </nav>
 
 <div id="search-results" class="search-results hidden"></div>
@@ -43,6 +43,35 @@
 
 </main>
 
+<!-- PAINEL DE CONFIGURAÇÕES -->
+<div class="config-overlay hidden" id="config-overlay" onclick="fecharConfig(event)">
+  <div class="config-panel">
+    <h2>⚙️ Configurações</h2>
+
+    <div class="config-section">
+      <h3>Tema</h3>
+      <button class="config-option" id="btn-tema-escuro" onclick="aplicarTema('dark')">🌙 Modo Escuro</button>
+      <button class="config-option" id="btn-tema-claro" onclick="aplicarTema('light')">☀️ Modo Claro</button>
+    </div>
+
+    <div class="config-section">
+      <h3>Classificação Indicativa</h3>
+      <button class="config-option" id="btn-rating-br" onclick="aplicarRating('BR')">🇧🇷 Brasil (DJCTQ)</button>
+    </div>
+
+    <div class="config-section">
+      <h3>Sobre</h3>
+      <div style="font-size:13px; opacity:0.6; color:var(--text); line-height:1.6;">
+        SNGames é um site de jogos no navegador feito por SussyNade.<br><br>
+        Versão Alpha
+      </div>
+    </div>
+
+    <button class="config-close" onclick="fecharConfigBtn()">✕ Fechar</button>
+  </div>
+</div>
+
+
 <div class="modal hidden" id="modal">
   <div class="modal-content">
     <div class="modal-header">
@@ -57,7 +86,7 @@
 <script src="jogos.js"></script>
 <script>
 function linkJogo(jogo) {
-  return `game.html?title=${encodeURIComponent(jogo.nome)}&type=${jogo.type}&url=${encodeURIComponent(jogo.url)}&thumb=${encodeURIComponent(jogo.thumb)}&tags=${encodeURIComponent(jogo.tags.join(","))}`;
+  return `game.html?title=${encodeURIComponent(jogo.nome)}&type=${jogo.type}&url=${encodeURIComponent(jogo.url)}&thumb=${encodeURIComponent(jogo.thumb)}&tags=${encodeURIComponent(jogo.tags.join(","))}&warn=${jogo.requiresPointerLock ? 1 : 0}`;
 }
 
 function criarCard(jogo) {
@@ -137,21 +166,31 @@ document.getElementById('modal').addEventListener('click', function(e) {
 
 
 <script>
-// Tema
+function abrirConfig() {
+  document.getElementById('config-overlay').classList.remove('hidden');
+}
+function fecharConfigBtn() {
+  document.getElementById('config-overlay').classList.add('hidden');
+}
+function fecharConfig(e) {
+  if (e.target === document.getElementById('config-overlay')) fecharConfigBtn();
+}
 function aplicarTema(tema) {
   document.documentElement.setAttribute('data-theme', tema);
-  document.getElementById('tema-btn').textContent = tema === 'light' ? '🌙' : '☀️';
   localStorage.setItem('tema', tema);
+  document.getElementById('btn-tema-escuro').classList.toggle('ativo', tema === 'dark');
+  document.getElementById('btn-tema-claro').classList.toggle('ativo', tema === 'light');
 }
-
-function toggleTema() {
-  const atual = document.documentElement.getAttribute('data-theme') || 'dark';
-  aplicarTema(atual === 'dark' ? 'light' : 'dark');
+function aplicarRating(sistema) {
+  localStorage.setItem('rating', sistema);
+  document.querySelectorAll('[id^="btn-rating-"]').forEach(b => b.classList.remove('ativo'));
+  const btn = document.getElementById('btn-rating-' + sistema.toLowerCase());
+  if (btn) btn.classList.add('ativo');
 }
-
-// Aplica tema salvo
 const temaSalvo = localStorage.getItem('tema') || 'dark';
+const ratingSalvo = localStorage.getItem('rating') || 'BR';
 aplicarTema(temaSalvo);
+aplicarRating(ratingSalvo);
 </script>
 </body>
 </html>
