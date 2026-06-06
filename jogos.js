@@ -8,6 +8,11 @@ const jogos = [
     type: "iframe",
     url: "https://geometrydash.com/game/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "9",
     tags: ["acao", "casual", "alta", "populares", "ritmo"]
   },
   {
@@ -17,6 +22,11 @@ const jogos = [
     type: "iframe",
     url: "https://www.stumbleguys.com/pt-BR/play",
     rating: "16",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "9",
     tags: ["acao", "casual", "amigos", "alta", "populares"]
   },
   {
@@ -26,6 +36,11 @@ const jogos = [
     type: "external",
     url: "https://ninja-muffin24.itch.io/funkin",
     rating: "12",
+    esrb: "T",
+    pegi: "12",
+    cero: "B",
+    grac: "12",
+    snr: "12",
     tags: ["ritmo", "alta", "populares"]
   },
   {
@@ -35,6 +50,11 @@ const jogos = [
     type: "external",
     url: "https://suika.world/play/offline",
     rating: "AL",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "6",
     tags: ["casual", "puzzle", "alta"]
   },
 
@@ -46,6 +66,11 @@ const jogos = [
     type: "iframe",
     url: "https://krunker.io/",
     rating: "A14",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["io", "acao", "amigos", "alta"],
     requiresPointerLock: true
   },
@@ -56,6 +81,11 @@ const jogos = [
     type: "iframe",
     url: "https://shellshock.io/",
     rating: "A12",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["io", "acao", "amigos"],
     requiresPointerLock: true
   },
@@ -66,6 +96,11 @@ const jogos = [
     type: "iframe",
     url: "https://surviv.io/",
     rating: "A12",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["io", "acao", "amigos", "alta"]
   },
   {
@@ -75,6 +110,11 @@ const jogos = [
     type: "iframe",
     url: "https://territorial.io/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "9",
     tags: ["io", "amigos", "estrategia"]
   },
   {
@@ -84,6 +124,11 @@ const jogos = [
     type: "iframe",
     url: "https://deeeep.io/",
     rating: "AL",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "9",
     tags: ["io", "casual", "amigos"]
   },
   {
@@ -93,6 +138,11 @@ const jogos = [
     type: "iframe",
     url: "http://slither.com/io/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["io", "casual", "amigos"]
   },
   {
@@ -102,6 +152,11 @@ const jogos = [
     type: "external",
     url: "https://agar.io/",
     rating: "18",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["io", "casual", "amigos"]
   },
   {
@@ -111,6 +166,11 @@ const jogos = [
     type: "iframe",
     url: "https://smashkarts.io/",
     rating: "18",
+    esrb: "E10",
+    pegi: "7",
+    cero: "A",
+    grac: "ALL",
+    snr: "9",
     tags: ["io", "amigos", "acao", "corrida", "populares"]
   },
   {
@@ -120,6 +180,11 @@ const jogos = [
     type: "iframe",
     url: "https://zombsroyale.io/",
     rating: "A12",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["io", "amigos", "acao"]
   },
   {
@@ -129,6 +194,11 @@ const jogos = [
     type: "iframe",
     url: "https://skribbl.io/",
     rating: "A14",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "UserGen",
     tags: ["io", "amigos", "criatividade"]
   },
 
@@ -140,6 +210,11 @@ const jogos = [
     type: "external",
     url: "https://poncle.itch.io/vampire-survivors",
     rating: "10",
+    esrb: "E10",
+    pegi: "7",
+    cero: "A",
+    grac: "12",
+    snr: "12",
     tags: ["acao"]
   },
 
@@ -151,6 +226,11 @@ const jogos = [
     type: "self",
     url: "games/2048/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "3",
     tags: ["puzzle", "casual"]
   },
   {
@@ -160,6 +240,11 @@ const jogos = [
     type: "iframe",
     url: "https://gridland.doublespeakgames.com/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["puzzle", "estrategia", "casual"]
   },
   {
@@ -169,6 +254,11 @@ const jogos = [
     type: "iframe",
     url: "https://penrose.doublespeakgames.com/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["puzzle", "criatividade"]
   },
   {
@@ -178,6 +268,11 @@ const jogos = [
     type: "iframe",
     url: "https://adarkroom.doublespeakgames.com/",
     rating: "A12",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["puzzle", "estrategia"]
   },
   {
@@ -187,6 +282,11 @@ const jogos = [
     type: "iframe",
     url: "https://radum.doublespeakgames.com/",
     rating: "A10",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "9",
     tags: ["puzzle", "estrategia", "amigos"]
   },
   {
@@ -196,6 +296,11 @@ const jogos = [
     type: "external",
     url: "https://yell0wsuit.page/assets/games/pudding-monsters/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["casual", "puzzle"]
   },
 
@@ -207,6 +312,11 @@ const jogos = [
     type: "external",
     url: "https://eaglercraft.com/",
     rating: "A10",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "9",
     tags: ["criatividade", "populares", "amigos"]
   },
   {
@@ -216,6 +326,11 @@ const jogos = [
     type: "iframe",
     url: "https://theuselessweb.com/",
     rating: "A10",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "6",
     tags: ["casual"]
   },
   {
@@ -225,6 +340,11 @@ const jogos = [
     type: "external",
     url: "https://orteil.dashnet.org/cookieclicker/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["casual", "populares"]
   },
   {
@@ -234,6 +354,11 @@ const jogos = [
     type: "iframe",
     url: "https://doublespeakgames.com/flight-of-fancy.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["criatividade", "casual"]
   },
   {
@@ -243,6 +368,11 @@ const jogos = [
     type: "iframe",
     url: "http://old.dinopoloclub.com/minimetro/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["criatividade", "casual"]
   },
 
@@ -254,6 +384,11 @@ const jogos = [
     type: "external",
     url: "https://neal.fun/",
     rating: "A12",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["edu", "casual"]
   },
   {
@@ -263,6 +398,11 @@ const jogos = [
     type: "external",
     url: "https://www.nytimes.com/games/wordle/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "3",
     tags: ["edu", "puzzle"]
   },
   {
@@ -272,6 +412,11 @@ const jogos = [
     type: "iframe",
     url: "https://term.ooo/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "3",
     tags: ["edu", "puzzle"]
   },
   {
@@ -281,6 +426,11 @@ const jogos = [
     type: "iframe",
     url: "https://openguessr.com/",
     rating: "A10",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "3",
     tags: ["edu", "casual"]
   },
   {
@@ -290,6 +440,11 @@ const jogos = [
     type: "iframe",
     url: "https://littlealchemy2.com/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "3",
     tags: ["puzzle", "edu", "casual", "populares", "criatividade"]
   },
 
@@ -301,6 +456,11 @@ const jogos = [
     type: "external",
     url: "https://www.newgrounds.com/portal/view/610995",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "9",
     tags: ["estrategia"]
   },
 
@@ -312,6 +472,11 @@ const jogos = [
     type: "external",
     url: "https://garticphone.com/",
     rating: "A12",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "UserGen",
     tags: ["casual", "amigos", "criatividade"]
   },
 
@@ -323,6 +488,11 @@ const jogos = [
     type: "iframe",
     url: "https://ctrhome.github.io/games/cut-the-rope/play/famobi/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["casual", "puzzle", "doce"]
   },
   {
@@ -332,6 +502,11 @@ const jogos = [
     type: "iframe",
     url: "https://ctrhome.github.io/play/cut-the-rope-experiments/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["casual", "puzzle", "doce"]
   },
   {
@@ -341,6 +516,11 @@ const jogos = [
     type: "iframe",
     url: "https://ctrhome.github.io/games/cut-the-rope-holiday-gift/play/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["casual", "puzzle", "doce"]
   },
   {
@@ -350,6 +530,11 @@ const jogos = [
     type: "iframe",
     url: "https://ctrhome.github.io/play/cut-the-rope-time-travel/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["casual", "puzzle", "doce"]
   },
   {
@@ -359,6 +544,11 @@ const jogos = [
     type: "external",
     url: "https://yell0wsuit.page/assets/games/ctr2/index.html/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["casual", "puzzle", "doce"]
   },
   {
@@ -368,6 +558,11 @@ const jogos = [
     type: "iframe",
     url: "https://ctrhome.github.io/play/cut-the-rope-magic/",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["casual", "puzzle", "doce"]
   },
 
@@ -381,6 +576,11 @@ const jogos = [
     type: "external",
     url: "https://html5.gamedistribution.com/9467420d5c84482e9087276338a3a7b1/",
     rating: "12",
+    esrb: "T",
+    pegi: "12",
+    cero: "B",
+    grac: "12",
+    snr: "9",
     tags: ["flash"]
   },
   {
@@ -390,6 +590,11 @@ const jogos = [
     type: "iframe",
     url: "http://game168976.konggames.com/gamez/0016/8976/live/index.html",
     rating: "12",
+    esrb: "E10",
+    pegi: "7",
+    cero: "A",
+    grac: "12",
+    snr: "9",
     tags: ["flash"]
   },
   // --- Papa's Series ---
@@ -400,6 +605,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual", "doce"]
   },
   {
@@ -409,6 +619,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_burgeria/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual"]
   },
   {
@@ -418,6 +633,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_pizzeria/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual"]
   },
   {
@@ -427,6 +647,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_pancakeria/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual"]
   },
   {
@@ -436,6 +661,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_hotdoggeria/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual"]
   },
   {
@@ -445,6 +675,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_cheeseria/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual"]
   },
   {
@@ -454,6 +689,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_donuteria/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual", "doce"]
   },
   {
@@ -463,6 +703,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_wingeria/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual"]
   },
   {
@@ -472,6 +717,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_pastaria/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual"]
   },
   {
@@ -481,6 +731,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_sushiria/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual"]
   },
   {
@@ -490,6 +745,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_tacomia/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual"]
   },
   {
@@ -499,6 +759,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_scooperia/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual", "doce"]
   },
   {
@@ -508,6 +773,11 @@ const jogos = [
     type: "self",
     url: "games/flash/papas_bakeria/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual", "doce"]
   },
 
@@ -519,6 +789,11 @@ const jogos = [
     type: "self",
     url: "games/flash/stickwar/index.html",
     rating: "12",
+    esrb: "T",
+    pegi: "12",
+    cero: "B",
+    grac: "12",
+    snr: "9",
     tags: ["flash", "acao", "estrategia"]
   },
   {
@@ -528,6 +803,11 @@ const jogos = [
     type: "self",
     url: "games/flash/stickwar2/index.html",
     rating: "A14",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["flash", "acao", "estrategia"]
   },
   {
@@ -537,6 +817,11 @@ const jogos = [
     type: "self",
     url: "games/flash/stickrpg/index.html",
     rating: "A12",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["flash", "casual", "puzzle"]
   },
   {
@@ -546,6 +831,11 @@ const jogos = [
     type: "self",
     url: "games/flash/electricman2/index.html",
     rating: "A14",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["flash", "acao"]
   },
   {
@@ -555,6 +845,11 @@ const jogos = [
     type: "self",
     url: "games/flash/madnesscombat2/index.html",
     rating: "A16",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["flash", "acao"]
   },
   {
@@ -564,6 +859,11 @@ const jogos = [
     type: "external",
     url: "https://totaljerkface.com/happy_wheels.tjf#game",
     rating: "A18",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "18",
     tags: ["flash", "acao", "casual"]
   },
   {
@@ -573,6 +873,11 @@ const jogos = [
     type: "self",
     url: "games/flash/earntodie/index.html",
     rating: "A14",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["flash", "acao", "casual"]
   },
   {
@@ -582,6 +887,11 @@ const jogos = [
     type: "self",
     url: "games/flash/thelaststand/index.html",
     rating: "A14",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["flash", "acao", "estrategia"]
   },
 
@@ -592,6 +902,11 @@ const jogos = [
     type: "self",
     url: "games/flash/smf_original/index.html",
     rating: "A10",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["flash", "acao", "amigos"]
   },
   {
@@ -601,6 +916,11 @@ const jogos = [
     type: "self",
     url: "games/flash/smf2/index.html",
     rating: "A10",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "12",
     tags: ["flash", "acao", "amigos"]
   },
 
@@ -612,6 +932,11 @@ const jogos = [
     type: "self",
     url: "games/flash/fancypants/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual", "acao"]
   },
   {
@@ -621,6 +946,11 @@ const jogos = [
     type: "self",
     url: "games/flash/fancypants2/index.html",
     rating: "L",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual", "acao"]
   },
   {
@@ -630,6 +960,11 @@ const jogos = [
     type: "self",
     url: "games/flash/dinorun/index.html",
     rating: "AL",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual", "acao"]
   },
   {
@@ -639,6 +974,11 @@ const jogos = [
     type: "self",
     url: "games/flash/learntofly/index.html",
     rating: "AL",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "6",
     tags: ["flash", "casual"]
   },
 
@@ -650,6 +990,11 @@ const jogos = [
     type: "self",
     url: "games/flash/bloons/index.html",
     rating: "AL",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "9",
     tags: ["flash", "puzzle", "casual"]
   },
   {
@@ -659,6 +1004,11 @@ const jogos = [
     type: "self",
     url: "games/flash/bloons2/index.html",
     rating: "AL",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "9",
     tags: ["flash", "puzzle", "casual"]
   },
   {
@@ -668,6 +1018,11 @@ const jogos = [
     type: "self",
     url: "games/flash/bloonstd/index.html",
     rating: "AL",
+    esrb: "E",
+    pegi: "3",
+    cero: "A",
+    grac: "ALL",
+    snr: "9",
     tags: ["flash", "estrategia", "puzzle"]
   },
   {
@@ -677,6 +1032,11 @@ const jogos = [
     type: "self",
     url: "games/flash/cursedtreasure/index.html",
     rating: "A10",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "9",
     tags: ["flash", "estrategia", "puzzle"]
   },
   {
@@ -686,6 +1046,11 @@ const jogos = [
     type: "self",
     url: "games/flash/gemcraft/index.html",
     rating: "A10",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "9",
     tags: ["flash", "estrategia", "puzzle"]
   },
   {
@@ -695,6 +1060,11 @@ const jogos = [
     type: "self",
     url: "games/flash/infectonator/index.html",
     rating: "14",
+    esrb: "T",
+    pegi: "12",
+    cero: "B",
+    grac: "12",
+    snr: "12",
     tags: ["flash", "estrategia", "casual"]
   },
   {
@@ -704,6 +1074,11 @@ const jogos = [
     type: "self",
     url: "games/flash/infectonator2/index.html",
     rating: "14",
+    esrb: "T",
+    pegi: "12",
+    cero: "B",
+    grac: "12",
+    snr: "12",
     tags: ["flash", "estrategia", "casual"]
   },
   {
@@ -713,6 +1088,11 @@ const jogos = [
     type: "self",
     url: "games/flash/desconhecido2/index.html",
     rating: "6",
+    esrb: "E",
+    pegi: "7",
+    cero: "A",
+    grac: "ALL",
+    snr: "9",
     tags: ["flash", "estrategia", "puzzle"]
   },
   {
@@ -722,6 +1102,11 @@ const jogos = [
     type: "external",
     url: "https://adayofjoy.itch.io/exhibit-of-sorrows",
     rating: "A16",
+    esrb: "RU",
+    pegi: "RP",
+    cero: "RP",
+    grac: "RP",
+    snr: "15",
     tags: ["Ação", "puzzle"]
   },
 ];

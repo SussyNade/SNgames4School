@@ -308,6 +308,12 @@ body {
   gap: 10px;
 }
 
+.config-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
 .config-section h3 {
   font-size: 12px;
   text-transform: uppercase;

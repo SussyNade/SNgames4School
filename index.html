@@ -13,7 +13,7 @@
 
 <nav class="navbar">
   <span class="logo">SN<span>Games</span></span>
-  <input type="text" class="search" placeholder="🔍 Buscar jogos..." id="searchInput" oninput="buscar()">
+  <input type="text" class="search" placeholder="🔍 Buscar jogos..." id="searchInput" oninput="buscar()" data-i18n="searchPlaceholder">
   <button class="config-btn" onclick="abrirConfig()" title="Configurações">☰</button>
 </nav>
 
@@ -22,52 +22,75 @@
 <main id="main-content">
 
   <section class="hero">
-    <h1>Bem vindo ao SNGames</h1>
-    <p>Jogue direto no navegador, sem instalar nada</p>
+    <h1 data-i18n="heroTitle">Bem vindo ao SNGames</h1>
+    <p data-i18n="heroSubtitle">Jogue direto no navegador, sem instalar nada</p>
   </section>
 
-  <div class="categoria"><div class="cat-header"><h2>🔥 Em Alta</h2></div><div class="row" id="row-alta"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>⭐ Mais Populares</h2></div><div class="row" id="row-populares"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>👥 Jogar com Amigos</h2></div><div class="row" id="row-amigos"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>🌐 Jogos .io</h2></div><div class="row" id="row-io"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>💥 Ação</h2></div><div class="row" id="row-acao"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>📚 Educacional</h2></div><div class="row" id="row-edu"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>🧩 Puzzle</h2></div><div class="row" id="row-puzzle"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>😎 Casual</h2></div><div class="row" id="row-casual"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>🎵 Ritmo</h2></div><div class="row" id="row-ritmo"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>♟️ Estratégia</h2></div><div class="row" id="row-estrategia"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>🎨 Criatividade</h2></div><div class="row" id="row-criatividade"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>🍬 Doce</h2></div><div class="row" id="row-doce"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>⚡ Clássicos Flash</h2></div><div class="row" id="row-flash"></div></div>
-  <div class="categoria"><div class="cat-header"><h2>🎮 Todos os Jogos</h2></div><div class="grid" id="grid-todos"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catAlta">🔥 Em Alta</h2></div><div class="row" id="row-alta"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catPopulares">⭐ Mais Populares</h2></div><div class="row" id="row-populares"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catAmigos">👥 Jogar com Amigos</h2></div><div class="row" id="row-amigos"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catIo">🌐 Jogos .io</h2></div><div class="row" id="row-io"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catAcao">💥 Ação</h2></div><div class="row" id="row-acao"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catEdu">📚 Educacional</h2></div><div class="row" id="row-edu"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catPuzzle">🧩 Puzzle</h2></div><div class="row" id="row-puzzle"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catCasual">😎 Casual</h2></div><div class="row" id="row-casual"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catRitmo">🎵 Ritmo</h2></div><div class="row" id="row-ritmo"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catEstrategia">♟️ Estratégia</h2></div><div class="row" id="row-estrategia"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catCriatividade">🎨 Criatividade</h2></div><div class="row" id="row-criatividade"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catDoce">🍬 Doce</h2></div><div class="row" id="row-doce"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="catFlash">⚡ Clássicos Flash</h2></div><div class="row" id="row-flash"></div></div>
+  <div class="categoria"><div class="cat-header"><h2 data-i18n="todosJogos">🎮 Todos os Jogos</h2></div><div class="grid" id="grid-todos"></div></div>
 
 </main>
 
 <!-- PAINEL DE CONFIGURAÇÕES -->
 <div class="config-overlay hidden" id="config-overlay" onclick="fecharConfig(event)">
   <div class="config-panel">
-    <h2>⚙️ Configurações</h2>
+    <h2 data-i18n="configTitle">⚙️ Configurações</h2>
 
     <div class="config-section">
-      <h3>Tema</h3>
-      <button class="config-option" id="btn-tema-escuro" onclick="aplicarTema('dark')">🌙 Modo Escuro</button>
-      <button class="config-option" id="btn-tema-claro" onclick="aplicarTema('light')">☀️ Modo Claro</button>
+      <h3 data-i18n="themeSection">Tema</h3>
+      <button class="config-option" id="btn-tema-escuro" onclick="aplicarTema('dark')" data-i18n="darkTheme">🌙 Modo Escuro</button>
+      <button class="config-option" id="btn-tema-claro" onclick="aplicarTema('light')" data-i18n="lightTheme">☀️ Modo Claro</button>
     </div>
 
     <div class="config-section">
-      <h3>Classificação Indicativa</h3>
-      <button class="config-option" id="btn-rating-br" onclick="aplicarRating('BR')">🇧🇷 Brasil (DJCTQ)</button>
+      <h3 data-i18n="ratingSection">Classificação Indicativa</h3>
+      <div class="config-grid">
+        <button class="config-option" id="btn-rating-br" onclick="aplicarRating('BR')" data-i18n="ratingBr">🇧🇷 Brasil (DJCTQ)</button>
+        <button class="config-option" id="btn-rating-us" onclick="aplicarRating('US')" data-i18n="ratingUs">🇺🇸 Estados Unidos (ESRB)</button>
+        <button class="config-option" id="btn-rating-eur" onclick="aplicarRating('EUR')" data-i18n="ratingEur">🇪🇺 Europa (PEGI)</button>
+        <button class="config-option" id="btn-rating-jpn" onclick="aplicarRating('JPN')" data-i18n="ratingJpn">🇯🇵 Japão (CERO)</button>
+        <button class="config-option" id="btn-rating-krea" onclick="aplicarRating('KREA')" data-i18n="ratingKrea">🇰🇷 Coreia do Sul (GRAC)</button>
+        <button class="config-option" id="btn-rating-snr" onclick="aplicarRating('SNR')" data-i18n="ratingSnr">🌐 SNRating</button>
+      </div>
     </div>
 
     <div class="config-section">
-      <h3>Sobre</h3>
-      <div style="font-size:13px; opacity:0.6; color:var(--text); line-height:1.6;">
+      <h3 data-i18n="languageSection">Idioma</h3>
+      <div class="config-grid">
+        <button class="config-option" id="btn-lang-pt" onclick="applyLanguage('pt')" data-i18n="langPt">🇧🇷 Português</button>
+        <button class="config-option" id="btn-lang-en" onclick="applyLanguage('en')" data-i18n="langEn">🇺🇸 English</button>
+        <button class="config-option" id="btn-lang-fr" onclick="applyLanguage('fr')" data-i18n="langFr">🇫🇷 Français</button>
+        <button class="config-option" id="btn-lang-es" onclick="applyLanguage('es')" data-i18n="langEs">🇪🇸 Español</button>
+        <button class="config-option" id="btn-lang-de" onclick="applyLanguage('de')" data-i18n="langDe">🇩🇪 Deutsch</button>
+        <button class="config-option" id="btn-lang-ja" onclick="applyLanguage('ja')" data-i18n="langJa">🇯🇵 日本語</button>
+        <button class="config-option" id="btn-lang-ko" onclick="applyLanguage('ko')" data-i18n="langKo">🇰🇷 한국어</button>
+        <button class="config-option" id="btn-lang-zh" onclick="applyLanguage('zh')" data-i18n="langZh">🇨🇳 简体中文</button>
+        <button class="config-option" id="btn-lang-ru" onclick="applyLanguage('ru')" data-i18n="langRu">🇷🇺 Русский</button>
+        <button class="config-option" id="btn-lang-ar" onclick="applyLanguage('ar')" data-i18n="langAr">🇸🇦 العربية</button>
+      </div>
+    </div>
+
+    <div class="config-section">
+      <h3 data-i18n="aboutSection">Sobre</h3>
+      <div style="font-size:13px; opacity:0.6; color:var(--text); line-height:1.6;" data-i18n="aboutText">
         SNGames é um site de jogos no navegador feito por SussyNade.<br><br>
         Versão Alpha
       </div>
     </div>
 
-    <button class="config-close" onclick="fecharConfigBtn()">✕ Fechar</button>
+    <button class="config-close" onclick="fecharConfigBtn()" data-i18n="closeBtn">✕ Fechar</button>
   </div>
 </div>
 
@@ -82,6 +105,7 @@
   </div>
 </div>
 
+<script src="translations.js"></script>
 <script src="rating_system.js"></script>
 <script src="jogos.js"></script>
 <script>
@@ -90,12 +114,20 @@ function linkJogo(jogo) {
 }
 
 function criarCard(jogo) {
-  const rating = getRatingHTML(jogo.rating, jogo.sistema || "BR");
+  const ratingSystem = localStorage.getItem('rating') || 'BR';
+  let ratingValue = jogo.rating; // Default BR
+  if (ratingSystem === 'US') ratingValue = jogo.esrb;
+  else if (ratingSystem === 'EUR') ratingValue = jogo.pegi;
+  else if (ratingSystem === 'JPN') ratingValue = jogo.cero;
+  else if (ratingSystem === 'KREA') ratingValue = jogo.grac;
+  else if (ratingSystem === 'SNR') ratingValue = jogo.snr;
+
+  const ratingHTML = getRatingHTML(ratingValue, ratingSystem);
   return `
     <a href="${linkJogo(jogo)}" class="card">
       <div class="thumb-wrapper">
         <img src="${jogo.thumb}" alt="${jogo.nome}">
-        ${rating}
+        ${ratingHTML}
       </div>
       <p>${jogo.nome}${jogo.type === 'external' ? ' ↗' : ''}</p>
     </a>
@@ -103,25 +135,28 @@ function criarCard(jogo) {
 }
 
 function preencherRow(id, tag, limite = 10) {
+  const lang = localStorage.getItem('language') || 'pt';
   const filtrados = jogos.filter(j => j.tags.includes(tag));
   const mostrar = filtrados.slice(0, limite);
   const row = document.getElementById(id);
+  row.innerHTML = ''; // Clear row before filling
   mostrar.forEach(j => { row.innerHTML += criarCard(j); });
   if (filtrados.length > limite) {
     const btn = document.createElement('div');
     btn.className = 'ver-todos-card';
     btn.onclick = () => abrirModal(tag);
-    btn.innerHTML = `<span>Ver todos<br>(${filtrados.length})</span>`;
+    btn.innerHTML = `<span data-i18n="verTodos">${i18n[lang].verTodos}</span><br>(${filtrados.length})`;
     row.appendChild(btn);
   }
 }
 
 function abrirModal(tag) {
+  const lang = localStorage.getItem('language') || 'pt';
   const titulos = {
-    alta: "🔥 Em Alta", populares: "⭐ Mais Populares", amigos: "👥 Jogar com Amigos",
-    io: "🌐 Jogos .io", acao: "💥 Ação", edu: "📚 Educacional", puzzle: "🧩 Puzzle",
-    casual: "😎 Casual", ritmo: "🎵 Ritmo", estrategia: "♟️ Estratégia",
-    criatividade: "🎨 Criatividade", doce: "🍬 Doce", flash: "⚡ Clássicos Flash"
+    alta: i18n[lang].catAlta, populares: i18n[lang].catPopulares, amigos: i18n[lang].catAmigos,
+    io: i18n[lang].catIo, acao: i18n[lang].catAcao, edu: i18n[lang].catEdu, puzzle: i18n[lang].catPuzzle,
+    casual: i18n[lang].catCasual, ritmo: i18n[lang].catRitmo, estrategia: i18n[lang].catEstrategia,
+    criatividade: i18n[lang].catCriatividade, doce: i18n[lang].catDoce, flash: i18n[lang].catFlash
   };
   const filtrados = jogos.filter(j => j.tags.includes(tag));
   document.getElementById('modal-title').textContent = titulos[tag] || tag;
@@ -132,6 +167,7 @@ function abrirModal(tag) {
 function fecharModal() { document.getElementById('modal').classList.add('hidden'); }
 
 function buscar() {
+  const lang = localStorage.getItem('language') || 'pt';
   const q = document.getElementById('searchInput').value.toLowerCase().trim();
   const results = document.getElementById('search-results');
   const main = document.getElementById('main-content');
@@ -140,24 +176,30 @@ function buscar() {
   main.classList.add('hidden');
   results.classList.remove('hidden');
   results.innerHTML = filtrados.length === 0
-    ? '<p class="sem-resultado">Nenhum jogo encontrado 😢</p>'
+    ? `<p class="sem-resultado" data-i18n="semResultado">${i18n[lang].semResultado}</p>`
     : `<div class="grid">${filtrados.map(criarCard).join('')}</div>`;
 }
 
-preencherRow('row-alta', 'alta');
-preencherRow('row-populares', 'populares');
-preencherRow('row-amigos', 'amigos');
-preencherRow('row-io', 'io');
-preencherRow('row-acao', 'acao');
-preencherRow('row-edu', 'edu');
-preencherRow('row-puzzle', 'puzzle');
-preencherRow('row-casual', 'casual');
-preencherRow('row-ritmo', 'ritmo');
-preencherRow('row-estrategia', 'estrategia');
-preencherRow('row-criatividade', 'criatividade');
-preencherRow('row-doce', 'doce');
-preencherRow('row-flash', 'flash');
-document.getElementById('grid-todos').innerHTML = jogos.map(criarCard).join('');
+function renderizarTudo() {
+  preencherRow('row-alta', 'alta');
+  preencherRow('row-populares', 'populares');
+  preencherRow('row-amigos', 'amigos');
+  preencherRow('row-io', 'io');
+  preencherRow('row-acao', 'acao');
+  preencherRow('row-edu', 'edu');
+  preencherRow('row-puzzle', 'puzzle');
+  preencherRow('row-casual', 'casual');
+  preencherRow('row-ritmo', 'ritmo');
+  preencherRow('row-estrategia', 'estrategia');
+  preencherRow('row-criatividade', 'criatividade');
+  preencherRow('row-doce', 'doce');
+  preencherRow('row-flash', 'flash');
+  document.getElementById('grid-todos').innerHTML = jogos.map(criarCard).join('');
+}
+
+renderizarTudo();
+
+window.addEventListener('languageChanged', renderizarTudo);
 
 document.getElementById('modal').addEventListener('click', function(e) {
   if (e.target === this) fecharModal();
@@ -186,6 +228,7 @@ function aplicarRating(sistema) {
   document.querySelectorAll('[id^="btn-rating-"]').forEach(b => b.classList.remove('ativo'));
   const btn = document.getElementById('btn-rating-' + sistema.toLowerCase());
   if (btn) btn.classList.add('ativo');
+  if (typeof renderizarTudo === 'function') renderizarTudo();
 }
 const temaSalvo = localStorage.getItem('tema') || 'dark';
 const ratingSalvo = localStorage.getItem('rating') || 'BR';

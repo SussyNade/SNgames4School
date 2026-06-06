@@ -97,6 +97,11 @@
       flex-direction: column;
       gap: 10px;
     }
+    .config-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
     .config-section h3 {
       font-size: 12px;
       text-transform: uppercase;
@@ -163,18 +168,18 @@
 
 <div class="firefox-aviso hidden" id="firefox-aviso">
   <div class="firefox-box">
-    <h2>⚠️ Problema no Firefox</h2>
-    <p>Este jogo tem problemas de controle no Firefox (movimento de câmera com mouse). O que deseja fazer?</p>
+    <h2 data-i18n="firefoxWarnTitle">⚠️ Problema no Firefox</h2>
+    <p data-i18n="firefoxWarnText">Este jogo tem problemas de controle no Firefox (movimento de câmera com mouse). O que deseja fazer?</p>
     <div class="firefox-btns">
-      <a id="btn-nova-guia" href="#" target="_blank" class="btn-nova-guia">Abrir em nova guia ↗</a>
-      <button class="btn-continuar" onclick="continuarAssim()">Continuar assim mesmo</button>
+      <a id="btn-nova-guia" href="#" target="_blank" class="btn-nova-guia" data-i18n="btnNovaGuia">Abrir em nova guia ↗</a>
+      <button class="btn-continuar" onclick="continuarAssim()" data-i18n="btnContinuar">Continuar assim mesmo</button>
     </div>
   </div>
 </div>
 
 <nav class="navbar">
   <a href="https://sussynade.github.io/SNgames/" class="logo">SN<span>Games</span></a>
-  <a href="https://sussynade.github.io/SNgames/" class="voltar">← Voltar</a>
+  <a href="https://sussynade.github.io/SNgames/" class="voltar" data-i18n="voltar">← Voltar</a>
   <span class="separador">|</span>
   <span class="game-nome" id="game-title">Carregando...</span>
   <button class="config-btn" onclick="abrirConfig()" title="Configurações">☰</button>
@@ -183,11 +188,12 @@
 <div class="main">
   <div class="game-area" id="game-area"></div>
   <div class="sidebar">
-    <h3>Jogar depois</h3>
+    <h3 data-i18n="jogarDepois">Jogar depois</h3>
     <div id="sidebar-jogos"></div>
   </div>
 </div>
 
+<script src="translations.js"></script>
 <script src="rating_system.js"></script>
 <script src="jogos.js"></script>
 <script>
@@ -211,6 +217,7 @@ const isFirefox = navigator.userAgent.toLowerCase().includes('firefox') &&
                   !navigator.userAgent.toLowerCase().includes('seamonkey');
 
 function carregarJogo() {
+  const lang = localStorage.getItem('language') || 'pt';
   const area = document.getElementById("game-area");
   if (type === "iframe" || type === "self") {
     const iframe = document.createElement("iframe");
@@ -223,8 +230,8 @@ function carregarJogo() {
       <div class="external-screen">
         ${thumb ? `<img src="${thumb}" alt="${title}">` : ""}
         <h2>${title}</h2>
-        <p>Este jogo é hospedado em um site externo.</p>
-        <a href="${url}" target="_blank" class="play-btn">Jogar ↗</a>
+        <p data-i18n="externalHost">${i18n[lang].externalHost}</p>
+        <a href="${url}" target="_blank" class="play-btn" data-i18n="btnJogar">${i18n[lang].btnJogar}</a>
       </div>
     `;
   }
@@ -243,24 +250,39 @@ if (isFirefox && needsWarn) {
   carregarJogo();
 }
 
-// sidebar
-const recomendados = jogos
-  .filter(j => j.url !== decodeURIComponent(url))
-  .sort((a, b) => {
-    const commonA = a.tags.filter(t => tagsAtual.includes(t)).length;
-    const commonB = b.tags.filter(t => tagsAtual.includes(t)).length;
-    return commonB - commonA;
-  });
+function renderSidebar() {
+  const lang = localStorage.getItem('language') || 'pt';
+  const ratingSystem = localStorage.getItem('rating') || 'BR';
+  const recomendados = jogos
+    .filter(j => j.url !== decodeURIComponent(url))
+    .sort((a, b) => {
+      const commonA = a.tags.filter(t => tagsAtual.includes(t)).length;
+      const commonB = b.tags.filter(t => tagsAtual.includes(t)).length;
+      return commonB - commonA;
+    });
 
-document.getElementById("sidebar-jogos").innerHTML = recomendados.map(j => `
-  <a href="${linkJogo(j)}" class="sidebar-card">
-    <div class="thumb-wrapper sidebar-thumb">
-      <img src="${j.thumb}" alt="${j.nome}">
-      ${getRatingHTML(j.rating, j.sistema || "BR")}
-    </div>
-    <span>${j.nome}${j.type === 'external' ? ' ↗' : ''}</span>
-  </a>
-`).join('');
+  document.getElementById("sidebar-jogos").innerHTML = recomendados.map(j => {
+    let ratingValue = j.rating; // Default BR
+    if (ratingSystem === 'US') ratingValue = j.esrb;
+    else if (ratingSystem === 'EUR') ratingValue = j.pegi;
+    else if (ratingSystem === 'JPN') ratingValue = j.cero;
+    else if (ratingSystem === 'KREA') ratingValue = j.grac;
+    else if (ratingSystem === 'SNR') ratingValue = j.snr;
+
+    return `
+      <a href="${linkJogo(j)}" class="sidebar-card">
+        <div class="thumb-wrapper sidebar-thumb">
+          <img src="${j.thumb}" alt="${j.nome}">
+          ${getRatingHTML(ratingValue, ratingSystem)}
+        </div>
+        <span>${j.nome}${j.type === 'external' ? ' ↗' : ''}</span>
+      </a>
+    `;
+  }).join('');
+}
+
+renderSidebar();
+window.addEventListener('languageChanged', renderSidebar);
 </script>
 
 
@@ -290,6 +312,7 @@ function aplicarRating(sistema) {
   document.querySelectorAll('[id^="btn-rating-"]').forEach(b => b.classList.remove('ativo'));
   const btn = document.getElementById('btn-rating-' + sistema.toLowerCase());
   if (btn) btn.classList.add('ativo');
+  if (typeof renderSidebar === 'function') renderSidebar();
 }
 
 // Aplica preferências salvas
@@ -303,28 +326,51 @@ aplicarRating(ratingSalvo);
 <!-- PAINEL DE CONFIGURAÇÕES -->
 <div class="config-overlay hidden" id="config-overlay" onclick="fecharConfig(event)">
   <div class="config-panel">
-    <h2>⚙️ Configurações</h2>
+    <h2 data-i18n="configTitle">⚙️ Configurações</h2>
 
     <div class="config-section">
-      <h3>Tema</h3>
-      <button class="config-option" id="btn-tema-escuro" onclick="aplicarTema('dark')">🌙 Modo Escuro</button>
-      <button class="config-option" id="btn-tema-claro" onclick="aplicarTema('light')">☀️ Modo Claro</button>
+      <h3 data-i18n="themeSection">Tema</h3>
+      <button class="config-option" id="btn-tema-escuro" onclick="aplicarTema('dark')" data-i18n="darkTheme">🌙 Modo Escuro</button>
+      <button class="config-option" id="btn-tema-claro" onclick="aplicarTema('light')" data-i18n="lightTheme">☀️ Modo Claro</button>
     </div>
 
     <div class="config-section">
-      <h3>Classificação Indicativa</h3>
-      <button class="config-option" id="btn-rating-br" onclick="aplicarRating('BR')">🇧🇷 Brasil (DJCTQ)</button>
+      <h3 data-i18n="ratingSection">Classificação Indicativa</h3>
+      <div class="config-grid">
+        <button class="config-option" id="btn-rating-br" onclick="aplicarRating('BR')" data-i18n="ratingBr">🇧🇷 Brasil (DJCTQ)</button>
+        <button class="config-option" id="btn-rating-us" onclick="aplicarRating('US')" data-i18n="ratingUs">🇺🇸 Estados Unidos (ESRB)</button>
+        <button class="config-option" id="btn-rating-eur" onclick="aplicarRating('EUR')" data-i18n="ratingEur">🇪🇺 Europa (PEGI)</button>
+        <button class="config-option" id="btn-rating-jpn" onclick="aplicarRating('JPN')" data-i18n="ratingJpn">🇯🇵 Japão (CERO)</button>
+        <button class="config-option" id="btn-rating-krea" onclick="aplicarRating('KREA')" data-i18n="ratingKrea">🇰🇷 Coreia do Sul (GRAC)</button>
+        <button class="config-option" id="btn-rating-snr" onclick="aplicarRating('SNR')" data-i18n="ratingSnr">🌐 SNRating</button>
+      </div>
     </div>
 
     <div class="config-section">
-      <h3>Sobre</h3>
-      <div style="font-size:13px; opacity:0.6; color:var(--text); line-height:1.6;">
+      <h3 data-i18n="languageSection">Idioma</h3>
+      <div class="config-grid">
+        <button class="config-option" id="btn-lang-pt" onclick="applyLanguage('pt')" data-i18n="langPt">🇧🇷 Português</button>
+        <button class="config-option" id="btn-lang-en" onclick="applyLanguage('en')" data-i18n="langEn">🇺🇸 English</button>
+        <button class="config-option" id="btn-lang-fr" onclick="applyLanguage('fr')" data-i18n="langFr">🇫🇷 Français</button>
+        <button class="config-option" id="btn-lang-es" onclick="applyLanguage('es')" data-i18n="langEs">🇪🇸 Español</button>
+        <button class="config-option" id="btn-lang-de" onclick="applyLanguage('de')" data-i18n="langDe">🇩🇪 Deutsch</button>
+        <button class="config-option" id="btn-lang-ja" onclick="applyLanguage('ja')" data-i18n="langJa">🇯🇵 日本語</button>
+        <button class="config-option" id="btn-lang-ko" onclick="applyLanguage('ko')" data-i18n="langKo">🇰🇷 한국어</button>
+        <button class="config-option" id="btn-lang-zh" onclick="applyLanguage('zh')" data-i18n="langZh">🇨🇳 简体中文</button>
+        <button class="config-option" id="btn-lang-ru" onclick="applyLanguage('ru')" data-i18n="langRu">🇷🇺 Русский</button>
+        <button class="config-option" id="btn-lang-ar" onclick="applyLanguage('ar')" data-i18n="langAr">🇸🇦 العربية</button>
+      </div>
+    </div>
+
+    <div class="config-section">
+      <h3 data-i18n="aboutSection">Sobre</h3>
+      <div style="font-size:13px; opacity:0.6; color:var(--text); line-height:1.6;" data-i18n="aboutText">
         SNGames é um site de jogos no navegador feito por SussyNade.<br><br>
         Versão Alpha
       </div>
     </div>
 
-    <button class="config-close" onclick="fecharConfigBtn()">✕ Fechar</button>
+    <button class="config-close" onclick="fecharConfigBtn()" data-i18n="closeBtn">✕ Fechar</button>
   </div>
 </div>
 
