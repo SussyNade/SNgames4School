@@ -56,10 +56,6 @@ const i18n = {
     catDoce: "🍬 Doce",
     catFlash: "⚡ Clássicos Flash",
     catFav: "❤️ Meus Favoritos  ",
-    error404Title: "404 - Página Não Encontrada",
-    error404Message: "Ops! Este jogo fugiu do mapa (ou a página sumiu).",
-    error404Sub: "Game Over! Parece que você tentou acessar um nível que não existe.",
-    backHome: "Voltar ao Início",
     seoTitle: "SNGames - Jogos Online Grátis no Navegador",
     seoDescription: "Jogue jogos online grátis direto no navegador, sem instalar nada."
   },
@@ -118,11 +114,6 @@ const i18n = {
     catCriatividade: "🎨 Creativity",
     catDoce: "🍬 Sweet",
     catFlash: "⚡ Flash Classics",
-    catFav: "❤️ My favorites"
-    error404Title: "404 - Page Not Found",
-    error404Message: "Oops! This game escaped the map (or the page is gone).",
-    error404Sub: "Game Over! It seems you tried to access a level that doesn't exist.",
-    backHome: "Back to Home",
     seoTitle: "SNGames - Free Online Browser Games",
     seoDescription: "Play free online games directly in your browser, no installation needed."
   },
@@ -181,10 +172,6 @@ const i18n = {
     catCriatividade: "🎨 Créativité",
     catDoce: "🍬 Sucré",
     catFlash: "⚡ Classiques Flash",
-    error404Title: "404 - Page non trouvée",
-    error404Message: "Oups ! Ce jeu s'est échappé de la carte (ou la page a disparu).",
-    error404Sub: "Game Over ! Il semble que vous ayez essayé d'accéder à un niveau qui n'existe pas.",
-    backHome: "Retour à l'accueil",
     catFav: "❤️ Mes Favoris",
     seoTitle: "SNGames - Jeux en ligne gratuits sur navigateur",
     seoDescription: "Jouez à des jeux en ligne gratuits directement dans votre navigateur, sans rien installer."
@@ -244,10 +231,6 @@ const i18n = {
     catCriatividade: "🎨 Creatividad",
     catDoce: "🍬 Dulce",
     catFlash: "⚡ Clásicos Flash",
-    error404Title: "404 - Página no encontrada",
-    error404Message: "¡Uy! Este juego se escapó del mapa (o la página desapareció).",
-    error404Sub: "¡Game Over! Parece que intentaste acceder a un nivel que no existe.",
-    backHome: "Volver al inicio",
     catFav: "❤️ Mis Favoritos",
     seoTitle: "SNGames - Juegos Online Gratis en el Navegador",
     seoDescription: "Juega juegos online gratis directamente en tu navegador, sin instalar nada."
