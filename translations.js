@@ -52,7 +52,9 @@ const i18n = {
     catEstrategia: "♟️ Estratégia",
     catCriatividade: "🎨 Criatividade",
     catDoce: "🍬 Doce",
-    catFlash: "⚡ Clássicos Flash"
+    catFlash: "⚡ Clássicos Flash",
+    seoTitle: "SNGames - Jogos Online Grátis no Navegador",
+    seoDescription: "Jogue jogos online grátis direto no navegador, sem instalar nada."
   },
   en: {
     searchPlaceholder: "🔍 Search games...",
@@ -106,7 +108,9 @@ const i18n = {
     catEstrategia: "♟️ Strategy",
     catCriatividade: "🎨 Creativity",
     catDoce: "🍬 Sweet",
-    catFlash: "⚡ Flash Classics"
+    catFlash: "⚡ Flash Classics",
+    seoTitle: "SNGames - Free Online Browser Games",
+    seoDescription: "Play free online games directly in your browser, no installation needed."
   },
   fr: {
     searchPlaceholder: "🔍 Rechercher des jeux...",
@@ -160,7 +164,9 @@ const i18n = {
     catEstrategia: "♟️ Stratégie",
     catCriatividade: "🎨 Créativité",
     catDoce: "🍬 Sucré",
-    catFlash: "⚡ Classiques Flash"
+    catFlash: "⚡ Classiques Flash",
+    seoTitle: "SNGames - Jeux en ligne gratuits sur navigateur",
+    seoDescription: "Jouez à des jeux en ligne gratuits directement dans votre navigateur, sans rien installer."
   },
   es: {
     searchPlaceholder: "🔍 Buscar juegos...",
@@ -214,7 +220,9 @@ const i18n = {
     catEstrategia: "♟️ Estrategia",
     catCriatividade: "🎨 Creatividad",
     catDoce: "🍬 Dulce",
-    catFlash: "⚡ Clásicos Flash"
+    catFlash: "⚡ Clásicos Flash",
+    seoTitle: "SNGames - Juegos Online Gratis en el Navegador",
+    seoDescription: "Juega juegos online gratis directamente en tu navegador, sin instalar nada."
   },
   de: {
     searchPlaceholder: "🔍 Spiele suchen...",
@@ -268,7 +276,9 @@ const i18n = {
     catEstrategia: "♟️ Strategie",
     catCriatividade: "🎨 Kreativität",
     catDoce: "🍬 Süßes",
-    catFlash: "⚡ Flash-Klassiker"
+    catFlash: "⚡ Flash-Klassiker",
+    seoTitle: "SNGames - Kostenlose Online-Browser-Spiele",
+    seoDescription: "Spiele kostenlose Online-Spiele direkt im Browser, ohne Installation."
   },
   ja: {
     searchPlaceholder: "🔍 ゲームを検索...",
@@ -322,7 +332,9 @@ const i18n = {
     catEstrategia: "♟️ 戦略",
     catCriatividade: "🎨 クリエイティブ",
     catDoce: "🍬 スイーツ",
-    catFlash: "⚡ フラッシュクラシック"
+    catFlash: "⚡ フラッシュクラシック",
+    seoTitle: "SNGames - 無料オンラインブラウザゲーム",
+    seoDescription: "ブラウザで直接遊べる無料オンラインゲーム、インストール不要。"
   },
   ko: {
     searchPlaceholder: "🔍 게임 검색...",
@@ -377,7 +389,9 @@ const i18n = {
     catEstrategia: "♟️ 전략",
     catCriatividade: "🎨 창의력",
     catDoce: "🍬 달콤한 게임",
-    catFlash: "⚡ 플래시 클래식"
+    catFlash: "⚡ 플래시 클래식",
+    seoTitle: "SNGames - 무료 온라인 브라우저 게임",
+    seoDescription: "설치 없이 브라우저에서 바로 즐기는 무료 온라인 게임."
   },
   zh: {
     searchPlaceholder: "🔍 搜索游戏...",
@@ -431,7 +445,9 @@ const i18n = {
     catEstrategia: "♟️ 策略",
     catCriatividade: "🎨 创意",
     catDoce: "🍬 甜品",
-    catFlash: "⚡ 经典 Flash"
+    catFlash: "⚡ 经典 Flash",
+    seoTitle: "SNGames - 免费在线浏览器游戏",
+    seoDescription: "无需安装，直接在浏览器中游玩免费在线游戏。"
   },
   ru: {
     searchPlaceholder: "🔍 Поиск игр...",
@@ -485,7 +501,9 @@ const i18n = {
     catEstrategia: "♟️ Стратегии",
     catCriatividade: "🎨 Творчество",
     catDoce: "🍬 Сладкое",
-    catFlash: "⚡ Flash-классика"
+    catFlash: "⚡ Flash-классика",
+    seoTitle: "SNGames - Бесплатные онлайн игры в браузере",
+    seoDescription: "Играйте в бесплатные онлайн игры прямо в браузере, без установки."
   },
   ar: {
     searchPlaceholder: "🔍 ابحث عن ألعاب...",
@@ -539,7 +557,9 @@ const i18n = {
     catEstrategia: "♟️ استراتيجية",
     catCriatividade: "🎨 إبداع",
     catDoce: "🍬 حلويات",
-    catFlash: "⚡ كلاسيكيات فلاش"
+    catFlash: "⚡ كلاسيكيات فلاش",
+    seoTitle: "SNGames - ألعاب مجانية عبر الإنترنت على المتصفح",
+    seoDescription: "العب ألعاباً مجانية عبر الإنترنت مباشرة في متصفحك، دون الحاجة إلى تثبيت أي شيء."
   }
 };
 
@@ -549,6 +569,29 @@ function applyLanguage(lang) {
   // Set language and direction
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  // Update SEO Tags (Only if on index.html or root)
+  const isMainPage = window.location.pathname.endsWith('index.html') || 
+                     window.location.pathname === '/' || 
+                     window.location.pathname.endsWith('/SNgames/') ||
+                     window.location.pathname.split('/').pop() === '';
+  
+  if (isMainPage && i18n[lang] && i18n[lang].seoTitle) {
+    document.title = i18n[lang].seoTitle;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', i18n[lang].seoDescription);
+    
+    // OG & Twitter
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', i18n[lang].seoTitle);
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', i18n[lang].seoDescription);
+    
+    const twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.setAttribute('content', i18n[lang].seoTitle);
+    const twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.setAttribute('content', i18n[lang].seoDescription);
+  }
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');

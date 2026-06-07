@@ -4,6 +4,7 @@ const jogos = [
   {
     id: "gd",
     nome: "Geometry Dash",
+    descricao: "Pule e voe pelo perigo neste jogo de plataforma de ação baseado em ritmo! Prepare-se para um desafio quase impossível no mundo do Geometry Dash.",
     thumb: "assets/thumbnail/Geometrydash.webp",
     type: "iframe",
     url: "https://geometrydash.com/game/index.html",
@@ -18,6 +19,7 @@ const jogos = [
   {
     id: "stumble",
     nome: "Stumble Guys",
+    descricao: "Stumble Guys é um jogo de nocaute massivo para vários jogadores com até 32 jogadores online. Junte-se rodada após rodada de caos crescente para tropeçar em diferentes níveis até que um vencedor seja coroado!",
     thumb: "assets/thumbnail/Stumbleguys.webp",
     type: "external",
     url: "https://www.stumbleguys.com/pt-BR/play",
@@ -32,6 +34,7 @@ const jogos = [
   {
     id: "fnf",
     nome: "Friday Night Funkin",
+    descricao: "Friday Night Funkin' é um jogo de ritmo onde você deve vencer batalhas musicais para ganhar o coração da sua namorada. Siga o ritmo e mostre suas habilidades!",
     thumb: "assets/thumbnail/FNF.webp",
     type: "external",
     url: "https://ninja-muffin24.itch.io/funkin",

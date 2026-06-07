@@ -4,6 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SNGames</title>
+  <meta name="description" content="Jogue jogos online grátis no SNGames.">
+  <meta name="keywords" content="jogos online, sngames, jogos grátis, browser games">
+  <meta name="author" content="SussyNade">
+  <link rel="canonical" href="https://sussynade.github.io/SNgames/game.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SNGames">
+  <meta property="og:description" content="Jogue jogos online grátis no SNGames.">
+  <meta property="og:image" content="https://sussynade.github.io/SNgames/assets/logosite/logo/logo.webp">
+  <meta property="og:url" content="https://sussynade.github.io/SNgames/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SNGames">
+  <meta name="twitter:description" content="Jogue jogos online grátis no SNGames.">
+  <meta name="twitter:image" content="https://sussynade.github.io/SNgames/assets/logosite/logo/logo.webp">
+
   <link rel="icon" type="image/png" sizes="16x16" href="assets/logosite/icon/16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/logosite/icon/32x32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/logosite/icon/64x64.png">
@@ -219,6 +237,27 @@ const needsWarn = params.get("warn") === "1";
 
 document.getElementById("game-title").textContent = title;
 document.title = title + " - SNGames";
+
+// SEO Dinâmico
+const jogoAtual = jogos.find(j => j.nome === title);
+if (jogoAtual) {
+  const desc = jogoAtual.descricao || `Jogue ${title} online grátis no SNGames. Jogo de ${jogoAtual.tags.join(', ')}.`;
+  const canonical = window.location.href;
+  const image = new URL(jogoAtual.thumb, window.location.origin).href;
+
+  document.querySelector('meta[name="description"]').setAttribute('content', desc);
+  document.querySelector('meta[name="keywords"]').setAttribute('content', `${title}, sngames, jogos online, ${jogoAtual.tags.join(', ')}`);
+  document.querySelector('link[rel="canonical"]').setAttribute('href', canonical);
+  
+  document.querySelector('meta[property="og:title"]').setAttribute('content', `${title} - SNGames`);
+  document.querySelector('meta[property="og:description"]').setAttribute('content', desc);
+  document.querySelector('meta[property="og:image"]').setAttribute('content', image);
+  document.querySelector('meta[property="og:url"]').setAttribute('content', canonical);
+
+  document.querySelector('meta[name="twitter:title"]').setAttribute('content', `${title} - SNGames`);
+  document.querySelector('meta[name="twitter:description"]').setAttribute('content', desc);
+  document.querySelector('meta[name="twitter:image"]').setAttribute('content', image);
+}
 
 // Detecção mais robusta de Firefox
 const isFirefox = navigator.userAgent.toLowerCase().includes('firefox') && 
