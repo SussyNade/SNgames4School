@@ -4,6 +4,12 @@ const jogos = [
   {
     id: "gd",
     nome: "Geometry Dash",
+    developer: "RobTop Games",
+    download: {
+      steam: 'https://store.steampowered.com/app/322170/Geometry_Dash/',
+      android: 'https://play.google.com/store/apps/details?id=com.robtopx.geometryjump',
+      ios: 'https://apps.apple.com/app/geometry-dash/id625334537'
+    },
     descricao: "Pule e voe pelo perigo neste jogo de plataforma de ação baseado em ritmo! Prepare-se para um desafio quase impossível no mundo do Geometry Dash.",
     thumb: "assets/thumbnail/Geometrydash.webp",
     type: "iframe",
@@ -19,7 +25,8 @@ const jogos = [
   {
     id: "stumble",
     nome: "Stumble Guys",
-    descricao: "Stumble Guys é um jogo de nocaute massivo para vários jogadores com até 32 jogadores online. Junte-se rodada após rodada de caos crescente para tropeçar em diferentes níveis até que um vencedor seja coroado!",
+    developer: "Scopely",
+    descricao: "Stumble Guys é um jogo de nocaute massivo para vários jogadores com até 32 jogadores online. Junte-se rodada após rodada de caos crescente para tropeçar em differentes níveis até que um vencedor seja coroado!",
     thumb: "assets/thumbnail/Stumbleguys.webp",
     type: "external",
     url: "https://www.stumbleguys.com/pt-BR/play",
@@ -34,6 +41,7 @@ const jogos = [
   {
     id: "fnf",
     nome: "Friday Night Funkin",
+    developer: "The Funkin' Crew Inc.",
     descricao: "Friday Night Funkin' é um jogo de ritmo onde você deve vencer batalhas musicais para ganhar o coração da sua namorada. Siga o ritmo e mostre suas habilidades!",
     thumb: "assets/thumbnail/FNF.webp",
     type: "external",
@@ -49,6 +57,7 @@ const jogos = [
   {
     id: "suika",
     nome: "Suika World",
+    developer: "Suika World",
     thumb: "assets/thumbnail/suika.webp",
     type: "external",
     url: "https://suika.world/play/offline",
@@ -65,6 +74,7 @@ const jogos = [
   {
     id: "krunker",
     nome: "Krunker.io",
+    developer: "Yendis Entertainment",
     thumb: "assets/thumbnail/Krunker.webp",
     type: "iframe",
     url: "https://krunker.io/",
@@ -80,6 +90,7 @@ const jogos = [
   {
     id: "shellshock",
     nome: "Shell Shockers",
+    developer: "Blue Wizard Digital",
     thumb: "assets/thumbnail/ShellShockers.webp",
     type: "iframe",
     url: "https://shellshock.io/",
@@ -95,6 +106,7 @@ const jogos = [
   {
     id: "surviv",
     nome: "Surviv.io",
+    developer: "Kongregate",
     thumb: "assets/thumbnail/Surviv.webp",
     type: "iframe",
     url: "https://surviv.io/",
@@ -109,6 +121,7 @@ const jogos = [
   {
     id: "territorial",
     nome: "Territorial.io",
+    developer: "David Tschacher",
     thumb: "assets/thumbnail/Territorial.webp",
     type: "iframe",
     url: "https://territorial.io/",
@@ -123,6 +136,7 @@ const jogos = [
   {
     id: "deeeep",
     nome: "Deeeep.io",
+    developer: "Federico Mouse",
     thumb: "assets/thumbnail/Deeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep.webp",
     type: "iframe",
     url: "https://deeeep.io/",
@@ -137,6 +151,7 @@ const jogos = [
   {
     id: "slither",
     nome: "Slither.io",
+    developer: "Lowly Labs",
     thumb: "assets/thumbnail/Slitherio.webp",
     type: "iframe",
     url: "http://slither.com/io/",
@@ -151,6 +166,7 @@ const jogos = [
   {
     id: "agar",
     nome: "Agar.io",
+    developer: "Miniclip",
     thumb: "assets/thumbnail/Agar.webp",
     type: "external",
     url: "https://agar.io/",
@@ -165,6 +181,7 @@ const jogos = [
   {
     id: "smashkarts",
     nome: "Smash Karts",
+    developer: "Tall Team",
     thumb: "assets/thumbnail/smashkart.webp",
     type: "iframe",
     url: "https://smashkarts.io/",
@@ -179,6 +196,7 @@ const jogos = [
   {
     id: "zombsroyale",
     nome: "ZombsRoyale",
+    developer: "End Game Interactive",
     thumb: "assets/thumbnail/zombsroyale.webp",
     type: "iframe",
     url: "https://zombsroyale.io/",
@@ -193,6 +211,7 @@ const jogos = [
   {
     id: "skribbl",
     nome: "skribbl.io",
+    developer: "TBO",
     thumb: "assets/thumbnail/skribbl.webp",
     type: "iframe",
     url: "https://skribbl.io/",
@@ -209,6 +228,7 @@ const jogos = [
   {
     id: "vampiresurvivor",
     nome: "Vampire Survivors",
+    developer: "poncle",
     thumb: "assets/thumbnail/vampiresurvivor.webp",
     type: "external",
     url: "https://poncle.itch.io/vampire-survivors",
@@ -225,6 +245,8 @@ const jogos = [
   {
     id: "2048",
     nome: "2048",
+    developer: "Gabriele Cirulli",
+    download: "games/2048/index.html",
     thumb: "assets/thumbnail/2048.webp",
     type: "self",
     url: "games/2048/index.html",
@@ -239,6 +261,7 @@ const jogos = [
   {
     id: "gridland",
     nome: "Gridland",
+    developer: "Double Speak Games",
     thumb: "assets/thumbnail/gridland.webp",
     type: "iframe",
     url: "https://gridland.doublespeakgames.com/",
@@ -253,6 +276,7 @@ const jogos = [
   {
     id: "penrose",
     nome: "Penrose",
+    developer: "Double Speak Games",
     thumb: "assets/thumbnail/penrose.webp",
     type: "iframe",
     url: "https://penrose.doublespeakgames.com/",
@@ -267,6 +291,7 @@ const jogos = [
   {
     id: "darkroom",
     nome: "A Dark Room",
+    developer: "Double Speak Games",
     thumb: "assets/thumbnail/darkroom.webp",
     type: "iframe",
     url: "https://adarkroom.doublespeakgames.com/",
@@ -281,6 +306,7 @@ const jogos = [
   {
     id: "radum",
     nome: "Radüm",
+    developer: "Double Speak Games",
     thumb: "assets/thumbnail/radum.webp",
     type: "iframe",
     url: "https://radum.doublespeakgames.com/",
@@ -295,6 +321,7 @@ const jogos = [
   {
     id: "puddingmonster",
     nome: "Pudding Monsters",
+    developer: "ZeptoLab",
     thumb: "assets/thumbnail/puddingmonster.webp",
     type: "external",
     url: "https://yell0wsuit.page/assets/games/pudding-monsters/index.html",
@@ -311,6 +338,7 @@ const jogos = [
   {
     id: "minecraft",
     nome: "Eaglercraft",
+    developer: "Lax1dude",
     thumb: "assets/thumbnail/Minecraft.webp",
     type: "external",
     url: "https://eaglercraft.com/",
@@ -325,6 +353,7 @@ const jogos = [
   {
     id: "uselessweb",
     nome: "The Useless Web",
+    developer: "Tim Holman",
     thumb: "assets/thumbnail/Uselessweb.webp",
     type: "iframe",
     url: "https://theuselessweb.com/",
@@ -339,6 +368,7 @@ const jogos = [
   {
     id: "cookieclicker",
     nome: "Cookie Clicker",
+    developer: "Orteil",
     thumb: "assets/thumbnail/CookieClicker.webp",
     type: "external",
     url: "https://orteil.dashnet.org/cookieclicker/",
@@ -353,6 +383,7 @@ const jogos = [
   {
     id: "flightoffancy",
     nome: "A Flight of Fancy",
+    developer: "Double Speak Games",
     thumb: "assets/thumbnail/flightoffancy.webp",
     type: "iframe",
     url: "https://doublespeakgames.com/flight-of-fancy.html",
@@ -367,6 +398,7 @@ const jogos = [
   {
     id: "minimetro",
     nome: "Mini Metro (beta)",
+    developer: "Dino Polo Club",
     thumb: "assets/thumbnail/minimetro.webp",
     type: "iframe",
     url: "http://old.dinopoloclub.com/minimetro/",
@@ -383,6 +415,7 @@ const jogos = [
   {
     id: "neal",
     nome: "NEAL.FUN",
+    developer: "Neal Agarwal",
     thumb: "assets/thumbnail/Neal.webp",
     type: "external",
     url: "https://neal.fun/",
@@ -397,6 +430,7 @@ const jogos = [
   {
     id: "wordle",
     nome: "Wordle",
+    developer: "The New York Times",
     thumb: "assets/thumbnail/Wordle.webp",
     type: "external",
     url: "https://www.nytimes.com/games/wordle/index.html",
@@ -411,6 +445,7 @@ const jogos = [
   {
     id: "termo",
     nome: "Termo",
+    developer: "Fernando Serboncini",
     thumb: "assets/thumbnail/Termo.webp",
     type: "iframe",
     url: "https://term.ooo/",
@@ -425,6 +460,7 @@ const jogos = [
   {
     id: "openguessr",
     nome: "OpenGuessr",
+    developer: "OpenGuessr",
     thumb: "assets/thumbnail/openguessr.webp",
     type: "iframe",
     url: "https://openguessr.com/",
@@ -439,6 +475,7 @@ const jogos = [
   {
     id: "littlealchemy",
     nome: "Little Alchemy 2",
+    developer: "Jakub Koziol",
     thumb: "assets/thumbnail/LittleAlchemist.webp",
     type: "iframe",
     url: "https://littlealchemy2.com/",
@@ -455,6 +492,7 @@ const jogos = [
   {
     id: "bloons",
     nome: "Bloons TD 5",
+    developer: "Ninja Kiwi",
     thumb: "assets/thumbnail/BloonsTD5.webp",
     type: "external",
     url: "https://www.newgrounds.com/portal/view/610995",
@@ -471,6 +509,7 @@ const jogos = [
   {
     id: "gartic",
     nome: "GarticPhone",
+    developer: "Onrizon",
     thumb: "assets/thumbnail/GarticP.webp",
     type: "external",
     url: "https://garticphone.com/",
@@ -487,6 +526,7 @@ const jogos = [
   {
     id: "cuttherope",
     nome: "Cut the Rope",
+    developer: "ZeptoLab",
     thumb: "assets/thumbnail/cuttherope.webp",
     type: "iframe",
     url: "https://ctrhome.github.io/games/cut-the-rope/play/famobi/",
@@ -501,6 +541,7 @@ const jogos = [
   {
     id: "cuttheropeexp",
     nome: "Cut the Rope Experiments",
+    developer: "ZeptoLab",
     thumb: "assets/thumbnail/cuttheropeexp.webp",
     type: "iframe",
     url: "https://ctrhome.github.io/play/cut-the-rope-experiments/",
@@ -515,6 +556,7 @@ const jogos = [
   {
     id: "cuttheropeholiday",
     nome: "Cut the Rope Holiday Gift",
+    developer: "ZeptoLab",
     thumb: "assets/thumbnail/cuttheropeholiday.webp",
     type: "iframe",
     url: "https://ctrhome.github.io/games/cut-the-rope-holiday-gift/play/",
@@ -529,6 +571,7 @@ const jogos = [
   {
     id: "cuttheropett",
     nome: "Cut the Rope Time Travel",
+    developer: "ZeptoLab",
     thumb: "assets/thumbnail/cuttheropett.webp",
     type: "iframe",
     url: "https://ctrhome.github.io/play/cut-the-rope-time-travel/",
@@ -543,6 +586,7 @@ const jogos = [
   {
     id: "cuttherope2",
     nome: "Cut the Rope 2",
+    developer: "ZeptoLab",
     thumb: "assets/thumbnail/cuttherope2.webp",
     type: "external",
     url: "https://yell0wsuit.page/assets/games/ctr2/index.html/",
@@ -557,6 +601,7 @@ const jogos = [
   {
     id: "cuttheropemagic",
     nome: "Cut the Rope Magic",
+    developer: "ZeptoLab",
     thumb: "assets/thumbnail/cuttheropemagic.webp",
     type: "iframe",
     url: "https://ctrhome.github.io/play/cut-the-rope-magic/",
@@ -575,6 +620,7 @@ const jogos = [
   {
     id: "ageofwar",
     nome: "Age of War",
+    developer: "Max Games",
     thumb: "assets/thumbnail/AgeofWar.webp",
     type: "external",
     url: "https://html5.gamedistribution.com/9467420d5c84482e9087276338a3a7b1/",
@@ -589,6 +635,7 @@ const jogos = [
   {
     id: "burritobison",
     nome: "Burrito Bison: Launcha Libre",
+    developer: "Juicy Beast",
     thumb: "assets/thumbnail/BurritoBison.webp",
     type: "iframe",
     url: "http://game168976.konggames.com/gamez/0016/8976/live/index.html",
@@ -604,6 +651,8 @@ const jogos = [
   {
     id: "papas_freezeria",
     nome: "Papa's Freezeria",
+    developer: "Flipline Studios",
+    download: "games/flash/papas/papasfreezeria.swf",
     thumb: "assets/thumbnail/PapasFreezeria.webp",
     type: "self",
     url: "games/flash/papas/index.html",
@@ -618,6 +667,8 @@ const jogos = [
   {
     id: "papas_burgeria",
     nome: "Papa's Burgeria",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_burgeria/papasburgeria_v2.swf",
     thumb: "assets/thumbnail/PapasBurgueria.webp",
     type: "self",
     url: "games/flash/papas_burgeria/index.html",
@@ -632,6 +683,8 @@ const jogos = [
   {
     id: "papas_pizzeria",
     nome: "Papa's Pizzeria",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_pizzeria/papaspizzeria_v2.swf",
     thumb: "assets/thumbnail/PapasPizzeria.webp",
     type: "self",
     url: "games/flash/papas_pizzeria/index.html",
@@ -646,6 +699,8 @@ const jogos = [
   {
     id: "papas_pancakeria",
     nome: "Papa's Pancakeria",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_pancakeria/papaspancakeria_v2.swf",
     thumb: "assets/thumbnail/PapasPancakeria.webp",
     type: "self",
     url: "games/flash/papas_pancakeria/index.html",
@@ -660,6 +715,8 @@ const jogos = [
   {
     id: "papas_hotdoggeria",
     nome: "Papa's Hot Doggeria",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_hotdoggeria/papashotdoggeria_v2.swf",
     thumb: "assets/thumbnail/papaisveryhot.webp",
     type: "self",
     url: "games/flash/papas_hotdoggeria/index.html",
@@ -674,6 +731,8 @@ const jogos = [
   {
     id: "papas_cheeseria",
     nome: "Papa's Cheeseria",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_cheeseria/papascheeseria_102.swf",
     thumb: "assets/thumbnail/PapasCheeseria.webp",
     type: "self",
     url: "games/flash/papas_cheeseria/index.html",
@@ -688,6 +747,8 @@ const jogos = [
   {
     id: "papas_donuteria",
     nome: "Papa's Donuteria",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_donuteria/papasdonuteria_102.swf",
     thumb: "assets/thumbnail/PapasDonuteria.webp",
     type: "self",
     url: "games/flash/papas_donuteria/index.html",
@@ -702,6 +763,8 @@ const jogos = [
   {
     id: "papas_wingeria",
     nome: "Papa's Wingeria",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_wingeria/papaswingeria_v2.swf",
     thumb: "assets/thumbnail/PapasWingeria.webp",
     type: "self",
     url: "games/flash/papas_wingeria/index.html",
@@ -716,6 +779,8 @@ const jogos = [
   {
     id: "papas_pastaria",
     nome: "Papa's Pastaria",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_pastaria/papaspastaria_v2.swf",
     thumb: "assets/thumbnail/PapasPastaria.webp",
     type: "self",
     url: "games/flash/papas_pastaria/index.html",
@@ -730,6 +795,8 @@ const jogos = [
   {
     id: "papas_sushiria",
     nome: "Papa's Sushiria",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_sushiria/papassushiria_101.swf",
     thumb: "assets/thumbnail/PapasSushiria.webp",
     type: "self",
     url: "games/flash/papas_sushiria/index.html",
@@ -744,6 +811,8 @@ const jogos = [
   {
     id: "papas_tacomia",
     nome: "Papa's Taco Mia",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_tacomia/papastacomia_v2.swf",
     thumb: "assets/thumbnail/PapasTacoria.webp",
     type: "self",
     url: "games/flash/papas_tacomia/index.html",
@@ -758,6 +827,8 @@ const jogos = [
   {
     id: "papas_scooperia",
     nome: "Papa's Scooperia",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_scooperia/papasscooperia_v102.swf",
     thumb: "assets/thumbnail/PapasScooperia.webp",
     type: "self",
     url: "games/flash/papas_scooperia/index.html",
@@ -772,6 +843,8 @@ const jogos = [
   {
     id: "papas_bakeria",
     nome: "Papa's Bakeria",
+    developer: "Flipline Studios",
+    download: "games/flash/papas_bakeria/papasbakeria.swf",
     thumb: "assets/thumbnail/PapasBakeria.webp",
     type: "self",
     url: "games/flash/papas_bakeria/index.html",
@@ -788,6 +861,8 @@ const jogos = [
   {
     id: "stickwar",
     nome: "Stick War",
+    developer: "Jason Whitham",
+    download: "games/flash/stickwar/stickwar_08.swf",
     thumb: "assets/thumbnail/StickWar.webp",
     type: "self",
     url: "games/flash/stickwar/index.html",
@@ -802,6 +877,8 @@ const jogos = [
   {
     id: "stickwar2",
     nome: "Stick War 2",
+    developer: "Jason Whitham",
+    download: "games/flash/stickwar2/stickwar2.swf",
     thumb: "assets/thumbnail/StickWar2.webp",
     type: "self",
     url: "games/flash/stickwar2/index.html",
@@ -816,6 +893,8 @@ const jogos = [
   {
     id: "stickrpg",
     nome: "Stick RPG",
+    developer: "XGen Studios",
+    download: "games/flash/stickrpg/stickrpg.swf",
     thumb: "assets/thumbnail/StickRPG.webp",
     type: "self",
     url: "games/flash/stickrpg/index.html",
@@ -830,6 +909,8 @@ const jogos = [
   {
     id: "electricman2",
     nome: "Electricman 2",
+    developer: "Damien Clarke",
+    download: "games/flash/electricman2/electricman2_0.swf",
     thumb: "assets/thumbnail/Eletricman2.webp",
     type: "self",
     url: "games/flash/electricman2/index.html",
@@ -844,6 +925,8 @@ const jogos = [
   {
     id: "madnesscombat2",
     nome: "Madness Combat 2",
+    developer: "Krinkels",
+    download: "games/flash/madnesscombat2/58182_Madness_combat2.swf",
     thumb: "assets/thumbnail/MadnessCombat2.webp",
     type: "self",
     url: "games/flash/madnesscombat2/index.html",
@@ -852,12 +935,14 @@ const jogos = [
     pegi: "RP",
     cero: "RP",
     grac: "RP",
-    snr: "12",
+    snr: "15",
     tags: ["flash", "acao"]
   },
   {
     id: "happywheels",
     nome: "Happy Wheels",
+    developer: "Jim Bonacci",
+    download: "games/flash/happywheels/hw_preloader_bf.swf",
     thumb: "assets/thumbnail/HappyWheel.webp",
     type: "external",
     url: "https://totaljerkface.com/happy_wheels.tjf#game",
@@ -872,6 +957,8 @@ const jogos = [
   {
     id: "earntodie",
     nome: "Earn to Die",
+    developer: "Toffee Games",
+    download: "games/flash/earntodie/earntodie.swf",
     thumb: "assets/thumbnail/Earn2Die.webp",
     type: "self",
     url: "games/flash/earntodie/index.html",
@@ -886,6 +973,8 @@ const jogos = [
   {
     id: "thelaststand",
     nome: "The Last Stand",
+    developer: "Con Artist Games",
+    download: "games/flash/thelaststand/thelaststand.swf",
     thumb: "assets/thumbnail/laststand.webp",
     type: "self",
     url: "games/flash/thelaststand/index.html",
@@ -901,6 +990,8 @@ const jogos = [
   {
     id: "smf_original",
     nome: "Super Smash Flash",
+    developer: "McLeodGaming",
+    download: "games/flash/smf_original/smf_original.swf",
     thumb: "assets/thumbnail/smf.webp",
     type: "self",
     url: "games/flash/smf_original/index.html",
@@ -915,6 +1006,8 @@ const jogos = [
   {
     id: "smf2",
     nome: "Super Smash Flash 2",
+    developer: "McLeodGaming",
+    download: "games/flash/smf2/smf2.swf",
     thumb: "assets/thumbnail/smf2.webp",
     type: "self",
     url: "games/flash/smf2/index.html",
@@ -931,6 +1024,8 @@ const jogos = [
   {
     id: "fancypants",
     nome: "Fancy Pants Adventure",
+    developer: "Brad Borne",
+    download: "games/flash/fancypants/FPAWorld1_07a.swf",
     thumb: "assets/thumbnail/sfp.webp",
     type: "self",
     url: "games/flash/fancypants/index.html",
@@ -945,6 +1040,8 @@ const jogos = [
   {
     id: "fancypants2",
     nome: "Fancy Pants Adventure: World 2 demo",
+    developer: "Brad Borne",
+    download: "games/flash/fancypants2/the-fancy-pants-adventure-world-2-demo.swf",
     thumb: "assets/thumbnail/sfp2.webp",
     type: "self",
     url: "games/flash/fancypants2/index.html",
@@ -959,6 +1056,8 @@ const jogos = [
   {
     id: "dinorun",
     nome: "Dino Run",
+    developer: "Pixeljam",
+    download: "games/flash/dinorun/dinorun.swf",
     thumb: "assets/thumbnail/DinoRun.webp",
     type: "self",
     url: "games/flash/dinorun/index.html",
@@ -973,6 +1072,8 @@ const jogos = [
   {
     id: "learntofly",
     nome: "Learn to Fly",
+    developer: "Light Bringer Games",
+    download: "games/flash/learntofly/learn-to-fly-3789.swf",
     thumb: "assets/thumbnail/Learn2Fly.webp",
     type: "self",
     url: "games/flash/learntofly/index.html",
@@ -989,6 +1090,8 @@ const jogos = [
   {
     id: "bloons1",
     nome: "Bloons (original)",
+    developer: "Ninja Kiwi",
+    download: "games/flash/bloons/bloons.swf",
     thumb: "assets/thumbnail/bloons.webp",
     type: "self",
     url: "games/flash/bloons/index.html",
@@ -1003,6 +1106,8 @@ const jogos = [
   {
     id: "bloons2",
     nome: "Bloons 2",
+    developer: "Ninja Kiwi",
+    download: "games/flash/bloons2/bloons2-2.swf",
     thumb: "assets/thumbnail/bloons2.webp",
     type: "self",
     url: "games/flash/bloons2/index.html",
@@ -1017,6 +1122,8 @@ const jogos = [
   {
     id: "bloonstd",
     nome: "Bloons Tower Defense",
+    developer: "Ninja Kiwi",
+    download: "games/flash/bloonstd/bloonstd_moved.swf",
     thumb: "assets/thumbnail/BloonsTD.webp",
     type: "self",
     url: "games/flash/bloonstd/index.html",
@@ -1031,6 +1138,8 @@ const jogos = [
   {
     id: "cursedtreasure",
     nome: "Cursed Treasure",
+    developer: "IriySoft",
+    download: "games/flash/cursedtreasure/cursedtreasure.swf",
     thumb: "assets/thumbnail/cursedgame.webp",
     type: "self",
     url: "games/flash/cursedtreasure/index.html",
@@ -1045,6 +1154,8 @@ const jogos = [
   {
     id: "gemcraft",
     nome: "Gemcraft",
+    developer: "GameInABottle",
+    download: "games/flash/gemcraft/gemcraft-1716.swf",
     thumb: "assets/thumbnail/GemCraft.webp",
     type: "self",
     url: "games/flash/gemcraft/index.html",
@@ -1059,6 +1170,8 @@ const jogos = [
   {
     id: "infectonator",
     nome: "Infectonator",
+    developer: "Toge Productions",
+    download: "games/flash/infectonator/infectonator.swf",
     thumb: "assets/thumbnail/infec.webp",
     type: "self",
     url: "games/flash/infectonator/index.html",
@@ -1073,6 +1186,8 @@ const jogos = [
   {
     id: "infectonator2",
     nome: "Infectonator 2",
+    developer: "Toge Productions",
+    download: "games/flash/infectonator2/infectonator-2-13150.swf",
     thumb: "assets/thumbnail/infec2.webp",
     type: "self",
     url: "games/flash/infectonator2/index.html",
@@ -1087,6 +1202,8 @@ const jogos = [
   {
     id: "desconhecido2",
     nome: "Kingdom Rush",
+    developer: "Ironhide Game Studio",
+    download: "games/flash/desconhecido2/12180.swf",
     thumb: "assets/thumbnail/kingdomrush.webp",
     type: "self",
     url: "games/flash/desconhecido2/index.html",
@@ -1101,6 +1218,7 @@ const jogos = [
   {
     id: "exhibitofsorrow",
     nome: "Exhibit Of Sorrows",
+    developer: "adayofjoy",
     thumb: "assets/thumbnail/exibitofsmt.webp",
     type: "external",
     url: "https://adayofjoy.itch.io/exhibit-of-sorrows",
@@ -1115,6 +1233,7 @@ const jogos = [
   {
     id: "f&w@ForestTemple",
     nome: "Fireboy and Watergirl 1 Forest Temple",
+    developer: "Oslo Albet",
     thumb: "assets/thumbnail/f&w@ForestTemple.webp",
     type: "iframe",
     url: "https://html5.gamedistribution.com/a55c9cc9c21e4fc683c8c6857f3d0c75/",
@@ -1129,6 +1248,7 @@ const jogos = [
   {
     id: "f&w2LightTemple",
     nome: "Fireboy and Watergirl 2 Light Temple",
+    developer: "Oslo Albet",
     thumb: "assets/thumbnail/f&w2LightTemple.webp",
     type: "iframe",
     url: "https://html5.gamedistribution.com/383ad09b92c7446b9113cccc29630517/?",
@@ -1143,6 +1263,7 @@ const jogos = [
   {
     id: "f&w3IceTemple",
     nome: "Fireboy and Watergirl 3 Ice Temple",
+    developer: "Oslo Albet",
     thumb: "assets/thumbnail/f&w3IceTemple.webp",
     type: "iframe",
     url: "https://html5.gamedistribution.com/f3a6e1ac0a77412289cbac47658b2b68/",
@@ -1157,6 +1278,7 @@ const jogos = [
   {
     id: "f&w4CrystalTemple",
     nome: "Fireboy and Watergirl 4 Crystal Temple",
+    developer: "Oslo Albet",
     thumb: "assets/thumbnail/f&w4CrystalTemple.webp",
     type: "iframe",
     url: "https://html5.gamedistribution.com/3790681b69584409b7f681a8e400102d/",
@@ -1171,6 +1293,7 @@ const jogos = [
   {
     id: "f&w5Elements",
     nome: "Fireboy and Watergirl 5 Elements",
+    developer: "Oslo Albet",
     thumb: "assets/thumbnail/f&w5Elements.webp",
     type: "iframe",
     url: "https://html5.gamedistribution.com/03f124074b0049f89fdace0cacf8ead5/",
@@ -1185,6 +1308,7 @@ const jogos = [
   {
     id: "f&w6FairyTales",
     nome: "Fireboy And Watergirl 6: Fairy Tales",
+    developer: "Oslo Albet",
     thumb: "assets/thumbnail/f&w6FairyTales.webp",
     type: "iframe",
     url: "https://html5.gamedistribution.com/56da8a54fe204845b34ccff750d4a60b/",
@@ -1199,6 +1323,7 @@ const jogos = [
   {
     id: "f&w7Friends",
     nome: "Fireboy & Watergirl 7: and Friends",
+    developer: "Oslo Albet",
     thumb: "assets/thumbnail/f&w7Friends.webp",
     type: "iframe",
     url: "https://html5.gamedistribution.com/d4a3629101574bc39bd8f9d1888ca58e/",
@@ -1213,6 +1338,7 @@ const jogos = [
   {
     id: "X3m",
     nome: "Moto X3M",
+    developer: "Madpuffers",
     thumb: "assets/thumbnail/x3m.webp",
     type: "iframe",
     url: "http://www.friv.com/z/games/motox3m/index-x.html",
@@ -1227,6 +1353,7 @@ const jogos = [
   {
     id: "X3m2",
     nome: "Moto X3M 2",
+    developer: "Madpuffers",
     thumb: "assets/thumbnail/x3m2.webp",
     type: "iframe",
     url: "https://storage.y8.com/y8-studio/html5/madpuffers/MotoX3M_2_new/?key=2365427&value=101993",
@@ -1241,6 +1368,7 @@ const jogos = [
   {
     id: "X3m3",
     nome: "Moto X3M 3",
+    developer: "Madpuffers",
     thumb: "assets/thumbnail/x3m3.webp",
     type: "iframe",
     url: "http://storage.y8.com/y8-studio/html5/akeemywka/moto_x3m_3/index.html",
@@ -1255,6 +1383,7 @@ const jogos = [
   {
     id: "X3m4",
     nome: "Moto X3M Winter",
+    developer: "Madpuffers",
     thumb: "assets/thumbnail/x3m4.webp",
     type: "iframe",
     url: "https://storage.y8.com/y8-studio/html5/madpuffers/MotoX3M_4_Winter_new/?key=2365427&value=148994/",
@@ -1269,6 +1398,7 @@ const jogos = [
   {
     id: "X3m5",
     nome: "Moto X3M Pool Party",
+    developer: "Madpuffers",
     thumb: "assets/thumbnail/x3m5.webp",
     type: "iframe",
     url: "https://storage.y8.com/y8-studio/html5/madpuffers/MotoX3M_5_PoolParty_new/?key=2365427&value=164857",
@@ -1283,6 +1413,7 @@ const jogos = [
   {
     id: "X3m6",
     nome: "Moto X3M Spooky Land",
+    developer: "Madpuffers",
     thumb: "assets/thumbnail/x3m6.webp",
     type: "iframe",
     url: "https://storage.y8.com/y8-studio/html5/madpuffers/MotoX3M_6_SpookyLand_new/?key=2365427&value=171349",

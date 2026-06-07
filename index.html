@@ -44,6 +44,7 @@
     <p data-i18n="heroSubtitle">Jogue direto no navegador, sem instalar nada</p>
   </section>
 
+  <div class="categoria hidden" id="cat-favoritos"><div class="cat-header"><h2 data-i18n="catFav">❤️ Meus Favoritos</h2></div><div class="row" id="row-favoritos"></div></div>
   <div class="categoria"><div class="cat-header"><h2 data-i18n="catAlta">🔥 Em Alta</h2></div><div class="row" id="row-alta"></div></div>
   <div class="categoria"><div class="cat-header"><h2 data-i18n="catPopulares">⭐ Mais Populares</h2></div><div class="row" id="row-populares"></div></div>
   <div class="categoria"><div class="cat-header"><h2 data-i18n="catAmigos">👥 Jogar com Amigos</h2></div><div class="row" id="row-amigos"></div></div>
@@ -199,6 +200,7 @@ function buscar() {
 }
 
 function renderizarTudo() {
+  renderFavoritos();
   preencherRow('row-alta', 'alta');
   preencherRow('row-populares', 'populares');
   preencherRow('row-amigos', 'amigos');
@@ -215,7 +217,35 @@ function renderizarTudo() {
   document.getElementById('grid-todos').innerHTML = jogos.map(criarCard).join('');
 }
 
+function renderFavoritos() {
+  const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+  const container = document.getElementById('cat-favoritos');
+  const row = document.getElementById('row-favoritos');
+  
+  if (favorites.length === 0) {
+    container.classList.add('hidden');
+    return;
+  }
+  
+  const favoritedGames = jogos.filter(j => favorites.includes(j.id));
+  if (favoritedGames.length === 0) {
+    container.classList.add('hidden');
+    return;
+  }
+
+  container.classList.remove('hidden');
+  row.innerHTML = favoritedGames.map(criarCard).join('');
+}
+
 renderizarTudo();
+
+// Handle search from game.html
+const params = new URLSearchParams(window.location.search);
+const searchQ = params.get('search');
+if (searchQ) {
+  document.getElementById('searchInput').value = searchQ;
+  buscar();
+}
 
 window.addEventListener('languageChanged', renderizarTudo);
 

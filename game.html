@@ -54,11 +54,77 @@
     .voltar { color: var(--text); text-decoration: none; font-size: 14px; opacity: 0.7; white-space: nowrap; }
     .voltar:hover { opacity: 1; }
     .separador { opacity: 0.3; }
-    .game-nome { font-weight: bold; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    
+    /* SEARCH BAR */
+    .search {
+      flex: 1;
+      max-width: 400px;
+      padding: 10px 16px;
+      border-radius: 20px;
+      border: none;
+      background: var(--bg3);
+      color: var(--text);
+      outline: none;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .search:focus { background: var(--bg4); }
+
     .main { display: flex; flex: 1; overflow: hidden; }
-    .game-area { flex: 1; background: black; position: relative; overflow: hidden; }
-    .game-area iframe { width: 100%; height: 100%; border: none; display: block; }
-    .external-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 40px; text-align: center; height: 100%; background: var(--bg); }
+    .game-area { flex: 1; background: black; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+    .game-area iframe { width: 100%; height: 100%; border: none; display: block; flex: 1; }
+    
+    /* BOTTOM BAR */
+    .bottom-bar {
+      height: 60px;
+      background: var(--bg2);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 20px;
+      border-top: 1px solid var(--bg3);
+      z-index: 100;
+    }
+    .game-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .game-info h1 {
+      font-size: 18px;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .game-info p {
+      font-size: 12px;
+      opacity: 0.6;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+    }
+    .action-btn {
+      background: var(--bg3);
+      border: none;
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: background 0.2s;
+    }
+    .action-btn:hover { background: var(--bg4); }
+    .action-btn.active { color: var(--accent); }
+
+    .external-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 40px; text-align: center; height: 100%; background: var(--bg); flex: 1; }
     .external-screen img { width: 160px; height: 160px; object-fit: cover; border-radius: 12px; }
     .external-screen h2 { font-size: 28px; }
     .external-screen p { opacity: 0.6; font-size: 14px; }
@@ -207,12 +273,25 @@
   <a href="https://sussynade.github.io/SNgames/" class="logo">SN<span>Games</span></a>
   <a href="https://sussynade.github.io/SNgames/" class="voltar" data-i18n="voltar">← Voltar</a>
   <span class="separador">|</span>
-  <span class="game-nome" id="game-title">Carregando...</span>
+  <input type="text" class="search" placeholder="🔍 Buscar jogos..." id="searchInput" onkeydown="if(event.key==='Enter') redirectSearch()" data-i18n="searchPlaceholder">
   <button class="config-btn" onclick="abrirConfig()" title="Configurações">☰</button>
 </nav>
 
 <div class="main">
-  <div class="game-area" id="game-area"></div>
+  <div class="game-area">
+    <div id="game-container" style="flex:1; position:relative;"></div>
+    <div class="bottom-bar">
+      <div class="game-info">
+        <h1 id="game-title-bottom">Carregando...</h1>
+        <p id="game-developer">Desenvolvedor desconhecido</p>
+      </div>
+      <div class="actions">
+        <button class="action-btn hidden" id="dl-btn" onclick="iniciarDownload()" title="Baixar" data-i18n-title="btnBaixar">⬇</button>
+        <button class="action-btn" id="fav-btn" onclick="toggleFavorite()" title="Favoritar" data-i18n-title="catFav">❤</button>
+        <button class="action-btn" onclick="toggleFullscreen()" title="Tela Cheia" data-i18n-title="btnFullscreen">⛶</button>
+      </div>
+    </div>
+  </div>
   <div class="sidebar">
     <h3 data-i18n="jogarDepois">Jogar depois</h3>
     <div id="sidebar-jogos"></div>
@@ -235,12 +314,15 @@ const thumb = params.get("thumb") || "";
 const tagsAtual = (params.get("tags") || "").split(',').filter(Boolean);
 const needsWarn = params.get("warn") === "1";
 
-document.getElementById("game-title").textContent = title;
+document.getElementById("game-title-bottom").textContent = title;
 document.title = title + " - SNGames";
 
-// SEO Dinâmico
 const jogoAtual = jogos.find(j => j.nome === title);
 if (jogoAtual) {
+  document.getElementById("game-developer").textContent = jogoAtual.developer || "Desenvolvedor desconhecido";
+  updateFavBtn();
+  updateDownloadBtn();
+  // SEO Dinâmico
   const desc = jogoAtual.descricao || `Jogue ${title} online grátis no SNGames. Jogo de ${jogoAtual.tags.join(', ')}.`;
   const canonical = window.location.href;
   const image = new URL(jogoAtual.thumb, window.location.origin).href;
@@ -265,10 +347,11 @@ const isFirefox = navigator.userAgent.toLowerCase().includes('firefox') &&
 
 function carregarJogo() {
   const lang = localStorage.getItem('language') || 'pt';
-  const area = document.getElementById("game-area");
+  const area = document.getElementById("game-container");
   if (type === "iframe" || type === "self") {
     const iframe = document.createElement("iframe");
     iframe.src = url;
+    iframe.id = "game-iframe";
     iframe.allowFullscreen = true;
     iframe.allow = "pointer-lock; fullscreen";
     area.appendChild(iframe);
@@ -284,6 +367,41 @@ function carregarJogo() {
   }
 }
 
+function toggleFullscreen() {
+  const el = document.getElementById('game-iframe') || document.getElementById('game-container');
+  if (!el) return;
+  if (el.requestFullscreen) el.requestFullscreen();
+  else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  else if (el.msRequestFullscreen) el.msRequestFullscreen();
+}
+
+function toggleFavorite() {
+  if (!jogoAtual) return;
+  let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+  const index = favorites.indexOf(jogoAtual.id);
+  if (index === -1) {
+    favorites.push(jogoAtual.id);
+  } else {
+    favorites.splice(index, 1);
+  }
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+  updateFavBtn();
+}
+
+function updateFavBtn() {
+  if (!jogoAtual) return;
+  const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+  const isFav = favorites.includes(jogoAtual.id);
+  document.getElementById('fav-btn').classList.toggle('active', isFav);
+}
+
+function redirectSearch() {
+  const query = document.getElementById('searchInput').value.trim();
+  if (query) {
+    window.location.href = `index.html?search=${encodeURIComponent(query)}`;
+  }
+}
+
 function continuarAssim() {
   document.getElementById('firefox-aviso').classList.add('hidden');
   carregarJogo();
@@ -295,6 +413,49 @@ if (isFirefox && needsWarn) {
   document.getElementById('btn-nova-guia').href = url;
 } else {
   carregarJogo();
+}
+
+function updateDownloadBtn() {
+  if (!jogoAtual || !jogoAtual.download) return;
+  document.getElementById('dl-btn').classList.remove('hidden');
+}
+
+function iniciarDownload() {
+  if (!jogoAtual || !jogoAtual.download) return;
+  const dl = jogoAtual.download;
+
+  if (typeof dl === 'string') {
+    // Caso seja um path para download direto
+    const a = document.createElement('a');
+    a.href = dl;
+    a.download = '';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  } else if (typeof dl === 'object') {
+    // Caso seja redirecionamento de loja
+    const os = getOS();
+    let url = '';
+
+    if ((os === 'Windows' || os === 'Linux' || os === 'MacOS') && dl.steam) url = dl.steam;
+    else if (os === 'Android' && dl.android) url = dl.android;
+    else if (os === 'iOS' && dl.ios) url = dl.ios;
+    
+    // Fallback caso o OS detectado não tenha link mas outros tenham
+    if (!url) url = dl.steam || dl.android || dl.ios;
+
+    if (url) window.open(url, '_blank');
+  }
+}
+
+function getOS() {
+  const ua = navigator.userAgent;
+  if (/android/i.test(ua)) return "Android";
+  if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return "iOS";
+  if (/Win/i.test(ua)) return "Windows";
+  if (/Mac/i.test(ua)) return "MacOS";
+  if (/Linux/i.test(ua)) return "Linux";
+  return "Unknown";
 }
 
 function renderSidebar() {

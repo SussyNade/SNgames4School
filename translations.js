@@ -39,6 +39,8 @@ const i18n = {
     btnContinuar: "Continuar assim mesmo",
     externalHost: "Este jogo é hospedado em um site externo.",
     btnJogar: "Jogar ↗",
+    btnBaixar: "Baixar",
+    btnFullscreen: "Tela Cheia",
     todosJogos: "🎮 Todos os Jogos",
     catAlta: "🔥 Em Alta",
     catPopulares: "⭐ Mais Populares",
@@ -53,6 +55,7 @@ const i18n = {
     catCriatividade: "🎨 Criatividade",
     catDoce: "🍬 Doce",
     catFlash: "⚡ Clássicos Flash",
+    catFav: "❤️ Meus Favoritos  ",
     seoTitle: "SNGames - Jogos Online Grátis no Navegador",
     seoDescription: "Jogue jogos online grátis direto no navegador, sem instalar nada."
   },
@@ -95,6 +98,8 @@ const i18n = {
     btnContinuar: "Continue anyway",
     externalHost: "This game is hosted on an external site.",
     btnJogar: "Play ↗",
+    btnBaixar: "Download",
+    btnFullscreen: "Fullscreen",
     todosJogos: "🎮 All Games",
     catAlta: "🔥 Trending",
     catPopulares: "⭐ Most Popular",
@@ -151,6 +156,8 @@ const i18n = {
     btnContinuar: "Continuer quand même",
     externalHost: "Ce jeu est hébergé sur un site externe.",
     btnJogar: "Jouer ↗",
+    btnBaixar: "Télécharger",
+    btnFullscreen: "Plein écran",
     todosJogos: "🎮 Tous les jeux",
     catAlta: "🔥 Tendances",
     catPopulares: "⭐ Plus populaires",
@@ -165,6 +172,7 @@ const i18n = {
     catCriatividade: "🎨 Créativité",
     catDoce: "🍬 Sucré",
     catFlash: "⚡ Classiques Flash",
+    catFav: "❤️ Mes Favoris",
     seoTitle: "SNGames - Jeux en ligne gratuits sur navigateur",
     seoDescription: "Jouez à des jeux en ligne gratuits directement dans votre navigateur, sans rien installer."
   },
@@ -207,6 +215,8 @@ const i18n = {
     btnContinuar: "Continuar de todos modos",
     externalHost: "Este juego está alojado en un sitio externo.",
     btnJogar: "Jugar ↗",
+    btnBaixar: "Descargar",
+    btnFullscreen: "Pantalla completa",
     todosJogos: "🎮 Todos los juegos",
     catAlta: "🔥 Tendencias",
     catPopulares: "⭐ Más populares",
@@ -221,6 +231,7 @@ const i18n = {
     catCriatividade: "🎨 Creatividad",
     catDoce: "🍬 Dulce",
     catFlash: "⚡ Clásicos Flash",
+    catFav: "❤️ Mis Favoritos",
     seoTitle: "SNGames - Juegos Online Gratis en el Navegador",
     seoDescription: "Juega juegos online gratis directamente en tu navegador, sin instalar nada."
   },
@@ -263,6 +274,8 @@ const i18n = {
     btnContinuar: "Trotzdem fortfahren",
     externalHost: "Dieses Spiel wird auf einer externen Website gehostet.",
     btnJogar: "Spielen ↗",
+    btnBaixar: "Herunterladen",
+    btnFullscreen: "Vollbild",
     todosJogos: "🎮 Alle Spiele",
     catAlta: "🔥 Angesagt",
     catPopulares: "⭐ Beliebteste",
@@ -277,6 +290,7 @@ const i18n = {
     catCriatividade: "🎨 Kreativität",
     catDoce: "🍬 Süßes",
     catFlash: "⚡ Flash-Klassiker",
+    catFav: "❤️ Meine Favoriten",
     seoTitle: "SNGames - Kostenlose Online-Browser-Spiele",
     seoDescription: "Spiele kostenlose Online-Spiele direkt im Browser, ohne Installation."
   },
@@ -319,6 +333,8 @@ const i18n = {
     btnContinuar: "そのまま続行",
     externalHost: "このゲームは外部サイトでホストされています。",
     btnJogar: "遊ぶ ↗",
+    btnBaixar: "ダウンロード",
+    btnFullscreen: "全画面表示",
     todosJogos: "🎮 すべてのゲーム",
     catAlta: "🔥 トレンド",
     catPopulares: "⭐ 人気",
@@ -333,6 +349,7 @@ const i18n = {
     catCriatividade: "🎨 クリエイティブ",
     catDoce: "🍬 スイーツ",
     catFlash: "⚡ フラッシュクラシック",
+    catFav: "❤️ お気に入り",
     seoTitle: "SNGames - 無料オンラインブラウザゲーム",
     seoDescription: "ブラウザで直接遊べる無料オンラインゲーム、インストール不要。"
   },
@@ -376,6 +393,8 @@ const i18n = {
     btnContinuar: "계속 진행",
     externalHost: "이 게임은 외부 사이트에서 제공됩니다.",
     btnJogar: "플레이 ↗",
+    btnBaixar: "다운로드",
+    btnFullscreen: "전체 화면",
     todosJogos: "🎮 모든 게임",
     catAlta: "🔥 인기 급상승",
     catPopulares: "⭐ 인기 게임",
@@ -390,6 +409,7 @@ const i18n = {
     catCriatividade: "🎨 창의력",
     catDoce: "🍬 달콤한 게임",
     catFlash: "⚡ 플래시 클래식",
+    catFav: "❤️ 내 즐겨찾기",
     seoTitle: "SNGames - 무료 온라인 브라우저 게임",
     seoDescription: "설치 없이 브라우저에서 바로 즐기는 무료 온라인 게임."
   },
@@ -432,6 +452,8 @@ const i18n = {
     btnContinuar: "仍然继续",
     externalHost: "此游戏托管在外部网站上。",
     btnJogar: "开始游玩 ↗",
+    btnBaixar: "下载",
+    btnFullscreen: "全屏",
     todosJogos: "🎮 所有游戏",
     catAlta: "🔥 热门",
     catPopulares: "⭐ 最受欢迎",
@@ -446,6 +468,7 @@ const i18n = {
     catCriatividade: "🎨 创意",
     catDoce: "🍬 甜品",
     catFlash: "⚡ 经典 Flash",
+    catFav: "❤️ 我的收藏",
     seoTitle: "SNGames - 免费在线浏览器游戏",
     seoDescription: "无需安装，直接在浏览器中游玩免费在线游戏。"
   },
@@ -488,6 +511,8 @@ const i18n = {
     btnContinuar: "Все равно продолжить",
     externalHost: "Эта игра размещена на внешнем сайте.",
     btnJogar: "Играть ↗",
+    btnBaixar: "Скачать",
+    btnFullscreen: "Во весь экран",
     todosJogos: "🎮 Все игры",
     catAlta: "🔥 В тренде",
     catPopulares: "⭐ Популярные",
@@ -502,6 +527,7 @@ const i18n = {
     catCriatividade: "🎨 Творчество",
     catDoce: "🍬 Сладкое",
     catFlash: "⚡ Flash-классика",
+    catFav: "❤️ Мое Избранное",
     seoTitle: "SNGames - Бесплатные онлайн игры в браузере",
     seoDescription: "Играйте в бесплатные онлайн игры прямо в браузере, без установки."
   },
@@ -530,6 +556,7 @@ const i18n = {
     langZh: "🇨🇳 الصينية",
     langRu: "🇷🇺 الروسية",
     langAr: "🇸🇦 العربية",
+    catFav: "❤️ مفضلاتي",
     aboutSection: "حول",
     aboutText: "SNGames هو موقع لألعاب المتصفح من صنع SussyNade.<br><br>نسخة ألفا",
     closeBtn: "✕ إغلاق",
@@ -544,6 +571,8 @@ const i18n = {
     btnContinuar: "المتابعة على أي حال",
     externalHost: "هذه اللعبة مستضافة على موقع خارجي.",
     btnJogar: "العب ↗",
+    btnBaixar: "تحميل",
+    btnFullscreen: "ملء الشاشة",
     todosJogos: "🎮 جميع الألعاب",
     catAlta: "🔥 الشائعة",
     catPopulares: "⭐ الأكثر شعبية",
@@ -601,6 +630,13 @@ function applyLanguage(lang) {
       } else {
         el.innerHTML = i18n[lang][key];
       }
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    const key = el.getAttribute('data-i18n-title');
+    if (i18n[lang] && i18n[lang][key]) {
+      el.title = i18n[lang][key];
     }
   });
 
