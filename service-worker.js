@@ -4,6 +4,7 @@ const CORE_ASSETS = [
   'index.html',
   'game.html',
   'offline.html',
+  'offline-bar.js',
   'style.css',
   'jogos.js',
   'translations.js',
@@ -46,7 +47,22 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
 
-  // Strategy: Stale-While-Revalidate for CORE_ASSETS and Cache First for others
+  // NAVIGATION REQUESTS
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() => {
+        // If navigation fails (offline), try these fallbacks:
+        if (url.pathname.endsWith('game.html')) {
+          return caches.match('game.html', { ignoreSearch: true }).then(res => res || caches.match('offline.html'));
+        }
+        // For index.html or any other page, show the dedicated offline page
+        return caches.match('offline.html') || caches.match('index.html');
+      })
+    );
+    return;
+  }
+
+  // ASSETS AND OTHER REQUESTS
   const isCoreAsset = CORE_ASSETS.some(asset => 
     url.pathname.endsWith(asset) || (asset === './' && url.pathname.endsWith('/'))
   );
@@ -54,26 +70,20 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
+        // Update core assets in background
         if (isCoreAsset) {
           fetch(event.request).then((networkResponse) => {
             if (networkResponse.status === 200) {
-              caches.open(CACHE_NAME).then((cache) => {
-                cache.put(event.request, networkResponse);
-              });
+              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
             }
           }).catch(() => {});
         }
         return cachedResponse;
       }
 
-      if (url.pathname.endsWith('game.html')) {
-        return caches.match('game.html', { ignoreSearch: true });
-      }
-
       return fetch(event.request).then((networkResponse) => {
         const isSelfHosted = url.pathname.includes('/games/');
         const isAsset = url.pathname.includes('/assets/');
-        // Explicitly include .wasm and other Ruffle assets
         const isCDN = url.hostname === 'unpkg.com' || url.hostname === 'cdnjs.cloudflare.com';
         
         if (networkResponse && networkResponse.status === 200 && (isSelfHosted || isAsset || isCDN)) {
@@ -85,14 +95,8 @@ self.addEventListener('fetch', (event) => {
 
         return networkResponse;
       }).catch(() => {
-        if (event.request.mode === 'navigate') {
-          if (url.pathname.endsWith('game.html')) {
-            return caches.match('game.html', { ignoreSearch: true });
-          }
-          return caches.match('offline.html');
-        }
-        // For other assets (like Ruffle wasm) that might fail fetch while offline
-        return caches.match(event.request);
+        // If asset fetch fails and not in cache, try to return nothing or a fallback image
+        return null;
       });
     })
   );

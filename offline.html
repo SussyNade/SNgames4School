@@ -157,6 +157,7 @@
 <script src="translations.js"></script>
 <script src="rating_system.js"></script>
 <script src="jogos.js"></script>
+<script src="offline-bar.js"></script>
 <script>
   // Configurações
   function abrirConfig() {
@@ -266,20 +267,17 @@
     }
   }
 
-  function checkOnline() {
-    if (navigator.onLine) {
-      document.getElementById('online-btn').classList.remove('hidden');
-    } else {
-      document.getElementById('online-btn').classList.add('hidden');
-    }
+  function updateOnlineButton() {
+    const btn = document.getElementById('online-btn');
+    if (navigator.onLine) btn.classList.remove('hidden');
+    else btn.classList.add('hidden');
   }
-
-  window.addEventListener('online', checkOnline);
-  window.addEventListener('offline', checkOnline);
+  window.addEventListener('online', updateOnlineButton);
+  window.addEventListener('offline', updateOnlineButton);
 
   applyOfflineTranslations();
   renderDownloaded();
-  checkOnline();
+  updateOnlineButton();
 </script>
 
 </body>

@@ -400,8 +400,8 @@
 </div>
 
 <nav class="navbar">
-  <a href="https://sussynade.github.io/SNgames/" class="logo">SN<span>Games</span></a>
-  <a href="https://sussynade.github.io/SNgames/" class="voltar" data-i18n="voltar">← Voltar</a>
+  <a href="https://sussynade.github.io/SNgames/offline.html" class="logo">SN<span>Games</span></a>
+  <a href="https://sussynade.github.io/SNgames/offline.html" class="voltar" data-i18n="voltar">← Voltar</a>
   <span class="separador">|</span>
   <input type="text" class="search" placeholder="🔍 Buscar jogos..." id="searchInput" onkeydown="if(event.key==='Enter') redirectSearch()" data-i18n="searchPlaceholder">
   <button class="config-btn" onclick="abrirConfig()" title="Configurações">☰</button>
@@ -432,7 +432,6 @@
 <script src="rating_system.js"></script>
 <script src="age-system.js"></script>
 <script src="jogos.js"></script>
-<script src="offline-bar.js"></script>
 <script>
 function linkJogo(jogo) {
   return `game.html?title=${encodeURIComponent(jogo.nome)}&type=${jogo.type}&url=${encodeURIComponent(jogo.url)}&thumb=${encodeURIComponent(jogo.thumb)}&tags=${encodeURIComponent(jogo.tags.join(','))}&warn=${jogo.requiresPointerLock ? 1 : 0}`;
