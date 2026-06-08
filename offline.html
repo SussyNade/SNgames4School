@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - SNGames</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+    .offline-container {
+      max-width: 600px;
+      width: 100%;
+    }
+    .logo-large {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .logo-large span { color: var(--accent); }
+    
+    h1 { margin-bottom: 10px; }
+    p { opacity: 0.7; margin-bottom: 30px; }
+    
+    .try-again {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 40px;
+      transition: background 0.2s;
+    }
+    .try-again:hover { background: var(--accent2); }
+
+    .downloaded-section {
+      width: 100%;
+      text-align: left;
+    }
+    .downloaded-section h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      opacity: 0.8;
+      border-bottom: 1px solid var(--bg3);
+      padding-bottom: 8px;
+    }
+    .offline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 15px;
+    }
+    .card p { margin-bottom: 0; margin-top: 8px; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<div class="offline-container">
+  <div class="logo-large">SN<span>Games</span></div>
+  
+  <h1 data-i18n="offlineTitle">Você está offline</h1>
+  <p data-i18n="offlineDesc">Não foi possível conectar ao servidor. Você ainda pode jogar os jogos que baixou.</p>
+  
+  <button class="try-again" onclick="window.location.reload()" data-i18n="tryAgain">Tentar novamente</button>
+
+  <div id="downloaded-games" class="downloaded-section hidden">
+    <h2 data-i18n="downloadedGames">Jogos baixados</h2>
+    <div class="offline-grid" id="offline-grid"></div>
+  </div>
+</div>
+
+<script src="translations.js"></script>
+<script src="rating_system.js"></script>
+<script src="jogos.js"></script>
+<script>
+  // Apply Theme
+  const temaSalvo = localStorage.getItem('tema') || 'dark';
+  document.documentElement.setAttribute('data-theme', temaSalvo);
+
+  // Translation support for offline page
+  const offlineI18n = {
+    pt: {
+      offlineTitle: "Você está offline",
+      offlineDesc: "Não foi possível conectar ao servidor. Você ainda pode jogar os jogos que baixou.",
+      tryAgain: "Tentar novamente",
+      downloadedGames: "Jogos baixados"
+    },
+    en: {
+      offlineTitle: "You're offline",
+      offlineDesc: "Couldn't connect to the server. You can still play the games you've downloaded.",
+      tryAgain: "Try again",
+      downloadedGames: "Downloaded games"
+    }
+  };
+
+  function applyOfflineTranslations() {
+    const lang = localStorage.getItem('language') || 'pt';
+    const dict = offlineI18n[lang] || offlineI18n['en'];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key]) el.textContent = dict[key];
+    });
+  }
+
+  function linkJogo(jogo) {
+    return `game.html?title=${encodeURIComponent(jogo.nome)}&type=${jogo.type}&url=${encodeURIComponent(jogo.url)}&thumb=${encodeURIComponent(jogo.thumb)}&tags=${encodeURIComponent(jogo.tags.join(","))}&warn=${jogo.requiresPointerLock ? 1 : 0}`;
+  }
+
+  function renderDownloaded() {
+    const grid = document.getElementById('offline-grid');
+    const section = document.getElementById('downloaded-games');
+    
+    const downloadedIds = Object.keys(localStorage)
+      .filter(key => key.startsWith('downloaded-') && localStorage.getItem(key) === 'true')
+      .map(key => key.replace('downloaded-', ''));
+
+    const downloadedGames = jogos.filter(j => downloadedIds.includes(j.id));
+
+    if (downloadedGames.length > 0) {
+      section.classList.remove('hidden');
+      grid.innerHTML = downloadedGames.map(jogo => `
+        <a href="${linkJogo(jogo)}" class="card">
+          <div class="thumb-wrapper">
+            <img src="${jogo.thumb}" alt="${jogo.nome}">
+            <div class="offline-badge" title="Works Offline">⚡</div>
+          </div>
+          <p>${jogo.nome}</p>
+        </a>
+      `).join('');
+    }
+  }
+
+  applyOfflineTranslations();
+  renderDownloaded();
+</script>
+
+</body>
+</html>

@@ -3,6 +3,7 @@ const CORE_ASSETS = [
   './',
   'index.html',
   'game.html',
+  'offline.html',
   'style.css',
   'jogos.js',
   'translations.js',
@@ -87,10 +88,12 @@ self.addEventListener('fetch', (event) => {
       }).catch(() => {
         // Offline fallbacks
         if (event.request.mode === 'navigate') {
+          // If trying to access game.html, it might work if the game was cached
           if (url.pathname.endsWith('game.html')) {
             return caches.match('game.html', { ignoreSearch: true });
           }
-          return caches.match('index.html') || caches.match('./');
+          // Otherwise, show the dedicated offline page
+          return caches.match('offline.html');
         }
       });
     })
