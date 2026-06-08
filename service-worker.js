@@ -1,11 +1,13 @@
 const CACHE_NAME = 'sngames-v1';
 const CORE_ASSETS = [
+  './',
   'index.html',
   'game.html',
   'style.css',
   'jogos.js',
   'translations.js',
   'rating_system.js',
+  'age-system.js',
   'manifest.json',
   'assets/logosite/logo/logo.webp',
   'assets/logosite/icon/16x16.png',
@@ -16,6 +18,7 @@ const CORE_ASSETS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
+      console.log('Caching core assets');
       return cache.addAll(CORE_ASSETS);
     })
   );
@@ -42,13 +45,28 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
 
+  // Strategy: Stale-While-Revalidate for CORE_ASSETS and Cache First for others
+  const isCoreAsset = CORE_ASSETS.some(asset => 
+    url.pathname.endsWith(asset) || (asset === './' && url.pathname.endsWith('/'))
+  );
+
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
+        // If it's a core asset, we still want to update it in the background
+        if (isCoreAsset) {
+          fetch(event.request).then((networkResponse) => {
+            if (networkResponse.status === 200) {
+              caches.open(CACHE_NAME).then((cache) => {
+                cache.put(event.request, networkResponse);
+              });
+            }
+          }).catch(() => {}); // Ignore network errors when updating
+        }
         return cachedResponse;
       }
 
-      // Special case: game.html with search params should serve the cached game.html
+      // Special case: game.html shell
       if (url.pathname.endsWith('game.html')) {
         return caches.match('game.html', { ignoreSearch: true });
       }
@@ -72,7 +90,7 @@ self.addEventListener('fetch', (event) => {
           if (url.pathname.endsWith('game.html')) {
             return caches.match('game.html', { ignoreSearch: true });
           }
-          return caches.match('index.html');
+          return caches.match('index.html') || caches.match('./');
         }
       });
     })
