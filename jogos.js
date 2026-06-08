@@ -305,6 +305,21 @@ const jogos = [
 
   // ===== EDUCACIONAL =====
   {
+    id: "portal",
+    nome: "Portal do Aluno Darwin",
+    developer: "Centro de Ensino Charles Darwin",
+    thumb: "assets/thumbnail/darwin.webp",
+    type: "external",
+    url: "https://aluno.darwin.com.br/",
+    rating: "",
+    esrb: "",
+    pegi: "",
+    cero: "",
+    grac: "",
+    snr: "",
+    tags: ["edu"]
+  },
+  {
     id: "neal",
     nome: "NEAL.FUN",
     developer: "Neal Agarwal",
