@@ -660,5 +660,3 @@ const initialLang = i18n[savedLang] ? savedLang : 'en';
 document.addEventListener('DOMContentLoaded', () => {
   applyLanguage(initialLang);
 });
-(initialLang);
-});
