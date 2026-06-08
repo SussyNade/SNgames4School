@@ -1,0 +1,36 @@
+{
+  "name": "SNGames",
+  "short_name": "SNGames",
+  "description": "Play free online games directly in your browser, no installation needed.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "icons": [
+    {
+      "src": "assets/logosite/icon/16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logosite/icon/32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logosite/icon/64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logosite/icon/64x64.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logosite/icon/64x64.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

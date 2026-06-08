@@ -29,6 +29,7 @@ const i18n = {
     aboutText: "SNGames é um site de jogos no navegador feito por SussyNade.<br><br>Versão Alpha",
     closeBtn: "✕ Fechar",
     verTodos: "Ver todos",
+    devUnknown: "Desenvolvedor desconhecido",
     semResultado: "Nenhum jogo encontrado 😢",
     voltar: "← Voltar",
     carregando: "Carregando...",
@@ -88,6 +89,7 @@ const i18n = {
     aboutText: "SNGames is a browser game site made by SussyNade.<br><br>Alpha Version",
     closeBtn: "✕ Close",
     verTodos: "See all",
+    devUnknown: "Unknown developer",
     semResultado: "No games found 😢",
     voltar: "← Back",
     carregando: "Loading...",
@@ -113,6 +115,7 @@ const i18n = {
     catEstrategia: "♟️ Strategy",
     catCriatividade: "🎨 Creativity",
     catDoce: "🍬 Sweet",
+    catFav: "❤️ My Favorites",
     catFlash: "⚡ Flash Classics",
     seoTitle: "SNGames - Free Online Browser Games",
     seoDescription: "Play free online games directly in your browser, no installation needed."
@@ -561,6 +564,7 @@ const i18n = {
     aboutText: "SNGames هو موقع لألعاب المتصفح من صنع SussyNade.<br><br>نسخة ألفا",
     closeBtn: "✕ إغلاق",
     verTodos: "عرض الكل",
+    devUnknown: "مطور غير معروف",
     semResultado: "لم يتم العثور على ألعاب 😢",
     voltar: "→ عودة",
     carregando: "جاري التحميل...",
@@ -655,4 +659,6 @@ const initialLang = i18n[savedLang] ? savedLang : 'en';
 
 document.addEventListener('DOMContentLoaded', () => {
   applyLanguage(initialLang);
+});
+(initialLang);
 });
