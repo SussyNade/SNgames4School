@@ -770,8 +770,10 @@ function fecharConfig(e) {
 function aplicarTema(tema) {
   document.documentElement.setAttribute('data-theme', tema);
   localStorage.setItem('tema', tema);
-  document.getElementById('btn-tema-escuro').classList.toggle('ativo', tema === 'dark');
-  document.getElementById('btn-tema-claro').classList.toggle('ativo', tema === 'light');
+  const btnEscuro = document.getElementById('btn-tema-escuro');
+  const btnClaro = document.getElementById('btn-tema-claro');
+  if (btnEscuro) btnEscuro.classList.toggle('ativo', tema === 'dark');
+  if (btnClaro) btnClaro.classList.toggle('ativo', tema === 'light');
 }
 
 function aplicarRating(sistema) {
