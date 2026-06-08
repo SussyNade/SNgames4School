@@ -9,11 +9,19 @@
     body {
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .navbar {
+      justify-content: flex-start;
+    }
+    .offline-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
       padding: 20px;
-      text-align: center;
     }
     .offline-container {
       max-width: 600px;
@@ -31,7 +39,7 @@
     h1 { margin-bottom: 10px; }
     p { opacity: 0.7; margin-bottom: 30px; }
     
-    .try-again {
+    .btn-action {
       background: var(--accent);
       color: white;
       border: none;
@@ -40,14 +48,19 @@
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      margin-bottom: 40px;
+      margin: 10px;
       transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
     }
-    .try-again:hover { background: var(--accent2); }
+    .btn-action:hover { background: var(--accent2); }
+    .btn-secondary { background: var(--bg3); }
+    .btn-secondary:hover { background: var(--bg4); }
 
     .downloaded-section {
       width: 100%;
       text-align: left;
+      margin-top: 40px;
     }
     .downloaded-section h2 {
       font-size: 18px;
@@ -66,17 +79,78 @@
 </head>
 <body>
 
-<div class="offline-container">
-  <div class="logo-large">SN<span>Games</span></div>
-  
-  <h1 data-i18n="offlineTitle">Você está offline</h1>
-  <p data-i18n="offlineDesc">Não foi possível conectar ao servidor. Você ainda pode jogar os jogos que baixou.</p>
-  
-  <button class="try-again" onclick="window.location.reload()" data-i18n="tryAgain">Tentar novamente</button>
+<nav class="navbar">
+  <a href="./" class="logo">SN<span>Games</span></a>
+  <button class="config-btn" onclick="abrirConfig()" title="Configurações">☰</button>
+</nav>
 
-  <div id="downloaded-games" class="downloaded-section hidden">
-    <h2 data-i18n="downloadedGames">Jogos baixados</h2>
-    <div class="offline-grid" id="offline-grid"></div>
+<div class="offline-content">
+  <div class="offline-container">
+    <div class="logo-large">SN<span>Games</span></div>
+    
+    <h1 data-i18n="offlineTitle">Você está offline</h1>
+    <p data-i18n="offlineDesc">Não foi possível conectar ao servidor. Você ainda pode jogar os jogos que baixou.</p>
+    
+    <div class="actions">
+      <button class="btn-action" onclick="window.location.reload()" data-i18n="tryAgain">Tentar novamente</button>
+      <a href="./" class="btn-action btn-secondary hidden" id="online-btn" data-i18n="backOnline">Voltar ao modo online</a>
+    </div>
+
+    <div id="downloaded-games" class="downloaded-section hidden">
+      <h2 data-i18n="downloadedGames">Jogos baixados</h2>
+      <div class="offline-grid" id="offline-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAINEL DE CONFIGURAÇÕES -->
+<div class="config-overlay hidden" id="config-overlay" onclick="fecharConfig(event)">
+  <div class="config-panel">
+    <h2 data-i18n="configTitle">⚙️ Configurações</h2>
+
+    <div class="config-section">
+      <h3 data-i18n="themeSection">Tema</h3>
+      <button class="config-option" id="btn-tema-escuro" onclick="aplicarTema('dark')" data-i18n="darkTheme">🌙 Modo Escuro</button>
+      <button class="config-option" id="btn-tema-claro" onclick="aplicarTema('light')" data-i18n="lightTheme">☀️ Modo Claro</button>
+    </div>
+
+    <div class="config-section">
+      <h3 data-i18n="ratingSection">Classificação Indicativa</h3>
+      <div class="config-grid">
+        <button class="config-option" id="btn-rating-br" onclick="aplicarRating('BR')" data-i18n="ratingBr">🇧🇷 Brasil (DJCTQ)</button>
+        <button class="config-option" id="btn-rating-us" onclick="aplicarRating('US')" data-i18n="ratingUs">🇺🇸 Estados Unidos (ESRB)</button>
+        <button class="config-option" id="btn-rating-eur" onclick="aplicarRating('EUR')" data-i18n="ratingEur">🇪🇺 Europa (PEGI)</button>
+        <button class="config-option" id="btn-rating-jpn" onclick="aplicarRating('JPN')" data-i18n="ratingJpn">🇯🇵 Japão (CERO)</button>
+        <button class="config-option" id="btn-rating-krea" onclick="aplicarRating('KREA')" data-i18n="ratingKrea">🇰🇷 Coreia do Sul (GRAC)</button>
+        <button class="config-option" id="btn-rating-snr" onclick="aplicarRating('SNR')" data-i18n="ratingSnr">🌐 SNRating</button>
+      </div>
+    </div>
+
+    <div class="config-section">
+      <h3 data-i18n="languageSection">Idioma</h3>
+      <div class="config-grid">
+        <button class="config-option" id="btn-lang-pt" onclick="applyLanguage('pt')" data-i18n="langPt">🇧🇷 Português</button>
+        <button class="config-option" id="btn-lang-en" onclick="applyLanguage('en')" data-i18n="langEn">🇺🇸 English</button>
+        <button class="config-option" id="btn-lang-fr" onclick="applyLanguage('fr')" data-i18n="langFr">🇫🇷 Français</button>
+        <button class="config-option" id="btn-lang-es" onclick="applyLanguage('es')" data-i18n="langEs">🇪🇸 Español</button>
+        <button class="config-option" id="btn-lang-de" onclick="applyLanguage('de')" data-i18n="langDe">🇩🇪 Deutsch</button>
+        <button class="config-option" id="btn-lang-ja" onclick="applyLanguage('ja')" data-i18n="langJa">🇯🇵 日本語</button>
+        <button class="config-option" id="btn-lang-ko" onclick="applyLanguage('ko')" data-i18n="langKo">🇰🇷 한국어</button>
+        <button class="config-option" id="btn-lang-zh" onclick="applyLanguage('zh')" data-i18n="langZh">🇨🇳 简体中文</button>
+        <button class="config-option" id="btn-lang-ru" onclick="applyLanguage('ru')" data-i18n="langRu">🇷🇺 Русский</button>
+        <button class="config-option" id="btn-lang-ar" onclick="applyLanguage('ar')" data-i18n="langAr">🇸🇦 العربية</button>
+      </div>
+    </div>
+
+    <div class="config-section">
+      <h3 data-i18n="aboutSection">Sobre</h3>
+      <div style="font-size:13px; opacity:0.6; color:var(--text); line-height:1.6;" data-i18n="aboutText">
+        SNGames é um site de jogos no navegador feito por SussyNade.<br><br>
+        Versão Alpha
+      </div>
+    </div>
+
+    <button class="config-close" onclick="fecharConfigBtn()" data-i18n="closeBtn">✕ Fechar</button>
   </div>
 </div>
 
@@ -84,9 +158,41 @@
 <script src="rating_system.js"></script>
 <script src="jogos.js"></script>
 <script>
-  // Apply Theme
+  // Configurações
+  function abrirConfig() {
+    document.getElementById('config-overlay').classList.remove('hidden');
+  }
+
+  function fecharConfigBtn() {
+    document.getElementById('config-overlay').classList.add('hidden');
+  }
+
+  function fecharConfig(e) {
+    if (e.target === document.getElementById('config-overlay')) fecharConfigBtn();
+  }
+
+  function aplicarTema(tema) {
+    document.documentElement.setAttribute('data-theme', tema);
+    localStorage.setItem('tema', tema);
+    const btnEscuro = document.getElementById('btn-tema-escuro');
+    const btnClaro = document.getElementById('btn-tema-claro');
+    if (btnEscuro) btnEscuro.classList.toggle('ativo', tema === 'dark');
+    if (btnClaro) btnClaro.classList.toggle('ativo', tema === 'light');
+  }
+
+  function aplicarRating(sistema) {
+    localStorage.setItem('rating', sistema);
+    document.querySelectorAll('[id^="btn-rating-"]').forEach(b => b.classList.remove('ativo'));
+    const btn = document.getElementById('btn-rating-' + sistema.toLowerCase());
+    if (btn) btn.classList.add('ativo');
+    renderDownloaded();
+  }
+
+  // Aplica preferências salvas
   const temaSalvo = localStorage.getItem('tema') || 'dark';
-  document.documentElement.setAttribute('data-theme', temaSalvo);
+  const ratingSalvo = localStorage.getItem('rating') || 'BR';
+  aplicarTema(temaSalvo);
+  aplicarRating(ratingSalvo);
 
   // Translation support for offline page
   const offlineI18n = {
@@ -94,13 +200,15 @@
       offlineTitle: "Você está offline",
       offlineDesc: "Não foi possível conectar ao servidor. Você ainda pode jogar os jogos que baixou.",
       tryAgain: "Tentar novamente",
-      downloadedGames: "Jogos baixados"
+      downloadedGames: "Jogos baixados",
+      backOnline: "Voltar ao modo online"
     },
     en: {
       offlineTitle: "You're offline",
       offlineDesc: "Couldn't connect to the server. You can still play the games you've downloaded.",
       tryAgain: "Try again",
-      downloadedGames: "Downloaded games"
+      downloadedGames: "Downloaded games",
+      backOnline: "Back to online mode"
     }
   };
 
@@ -109,9 +217,13 @@
     const dict = offlineI18n[lang] || offlineI18n['en'];
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (dict[key]) el.textContent = dict[key];
+      if (dict[key]) {
+        el.textContent = dict[key];
+      }
     });
   }
+
+  window.addEventListener('languageChanged', applyOfflineTranslations);
 
   function linkJogo(jogo) {
     return `game.html?title=${encodeURIComponent(jogo.nome)}&type=${jogo.type}&url=${encodeURIComponent(jogo.url)}&thumb=${encodeURIComponent(jogo.thumb)}&tags=${encodeURIComponent(jogo.tags.join(","))}&warn=${jogo.requiresPointerLock ? 1 : 0}`;
@@ -120,6 +232,7 @@
   function renderDownloaded() {
     const grid = document.getElementById('offline-grid');
     const section = document.getElementById('downloaded-games');
+    const ratingSystem = localStorage.getItem('rating') || 'BR';
     
     const downloadedIds = Object.keys(localStorage)
       .filter(key => key.startsWith('downloaded-') && localStorage.getItem(key) === 'true')
@@ -129,20 +242,44 @@
 
     if (downloadedGames.length > 0) {
       section.classList.remove('hidden');
-      grid.innerHTML = downloadedGames.map(jogo => `
-        <a href="${linkJogo(jogo)}" class="card">
-          <div class="thumb-wrapper">
-            <img src="${jogo.thumb}" alt="${jogo.nome}">
-            <div class="offline-badge" title="Works Offline">⚡</div>
-          </div>
-          <p>${jogo.nome}</p>
-        </a>
-      `).join('');
+      grid.innerHTML = downloadedGames.map(jogo => {
+        let ratingValue = jogo.rating;
+        if (ratingSystem === 'US') ratingValue = jogo.esrb;
+        else if (ratingSystem === 'EUR') ratingValue = jogo.pegi;
+        else if (ratingSystem === 'JPN') ratingValue = jogo.cero;
+        else if (ratingSystem === 'KREA') ratingValue = jogo.grac;
+        else if (ratingSystem === 'SNR') ratingValue = jogo.snr;
+
+        return `
+          <a href="${linkJogo(jogo)}" class="card">
+            <div class="thumb-wrapper">
+              <img src="${jogo.thumb}" alt="${jogo.nome}">
+              <div class="offline-badge" title="Works Offline">⚡</div>
+              ${getRatingHTML(ratingValue, ratingSystem)}
+            </div>
+            <p>${jogo.nome}</p>
+          </a>
+        `;
+      }).join('');
+    } else {
+      section.classList.add('hidden');
     }
   }
 
+  function checkOnline() {
+    if (navigator.onLine) {
+      document.getElementById('online-btn').classList.remove('hidden');
+    } else {
+      document.getElementById('online-btn').classList.add('hidden');
+    }
+  }
+
+  window.addEventListener('online', checkOnline);
+  window.addEventListener('offline', checkOnline);
+
   applyOfflineTranslations();
   renderDownloaded();
+  checkOnline();
 </script>
 
 </body>

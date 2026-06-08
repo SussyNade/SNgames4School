@@ -54,7 +54,6 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
-        // If it's a core asset, we still want to update it in the background
         if (isCoreAsset) {
           fetch(event.request).then((networkResponse) => {
             if (networkResponse.status === 200) {
@@ -62,12 +61,11 @@ self.addEventListener('fetch', (event) => {
                 cache.put(event.request, networkResponse);
               });
             }
-          }).catch(() => {}); // Ignore network errors when updating
+          }).catch(() => {});
         }
         return cachedResponse;
       }
 
-      // Special case: game.html shell
       if (url.pathname.endsWith('game.html')) {
         return caches.match('game.html', { ignoreSearch: true });
       }
@@ -75,6 +73,7 @@ self.addEventListener('fetch', (event) => {
       return fetch(event.request).then((networkResponse) => {
         const isSelfHosted = url.pathname.includes('/games/');
         const isAsset = url.pathname.includes('/assets/');
+        // Explicitly include .wasm and other Ruffle assets
         const isCDN = url.hostname === 'unpkg.com' || url.hostname === 'cdnjs.cloudflare.com';
         
         if (networkResponse && networkResponse.status === 200 && (isSelfHosted || isAsset || isCDN)) {
@@ -86,15 +85,14 @@ self.addEventListener('fetch', (event) => {
 
         return networkResponse;
       }).catch(() => {
-        // Offline fallbacks
         if (event.request.mode === 'navigate') {
-          // If trying to access game.html, it might work if the game was cached
           if (url.pathname.endsWith('game.html')) {
             return caches.match('game.html', { ignoreSearch: true });
           }
-          // Otherwise, show the dedicated offline page
           return caches.match('offline.html');
         }
+        // For other assets (like Ruffle wasm) that might fail fetch while offline
+        return caches.match(event.request);
       });
     })
   );

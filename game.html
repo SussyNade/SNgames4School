@@ -578,26 +578,88 @@ function updateDownloadBtn() {
   if (!jogoAtual) return;
   const dlBtn = document.getElementById('dl-btn');
   const isSelf = jogoAtual.type === 'self';
-  const hasDownload = !!jogoAtual.download;
+  const hasStoreLinks = typeof jogoAtual.download === 'object' && jogoAtual.download !== null;
   const lang = localStorage.getItem('language') || 'pt';
   const displayLang = i18n[lang] ? lang : 'pt';
 
-  if (isSelf || hasDownload) {
+  if (isSelf || hasStoreLinks) {
     dlBtn.classList.remove('hidden');
     if (isSelf) {
       const downloaded = localStorage.getItem('downloaded-' + jogoAtual.id);
       if (downloaded) {
-        dlBtn.textContent = '✓';
-        dlBtn.title = i18n[displayLang].btnBaixado || 'Baixado';
+        dlBtn.textContent = '🗑';
+        dlBtn.title = i18n[displayLang].btnDeletar || 'Deletar';
         dlBtn.classList.add('active');
       } else {
         dlBtn.textContent = '⬇';
         dlBtn.title = i18n[displayLang].btnBaixar || 'Baixar';
         dlBtn.classList.remove('active');
       }
+    } else {
+      dlBtn.textContent = '⬇';
+      dlBtn.title = i18n[displayLang].btnBaixar || 'Baixar';
+      dlBtn.classList.remove('active');
     }
   } else {
     dlBtn.classList.add('hidden');
+  }
+}
+
+async function deletarDownload(jogo) {
+  const dlBtn = document.getElementById('dl-btn');
+  const lang = localStorage.getItem('language') || 'pt';
+  const displayLang = i18n[lang] ? lang : 'pt';
+  
+  if (dlBtn.classList.contains('loading')) return;
+  
+  dlBtn.textContent = '...';
+  dlBtn.title = i18n[displayLang].btnDeletando || 'Deletando...';
+  dlBtn.classList.add('loading');
+  dlBtn.style.pointerEvents = 'none';
+
+  try {
+    const cache = await caches.open('sngames-v1');
+    const urlsToDelete = [jogo.url, jogo.thumb];
+    
+    const response = await fetch(jogo.url);
+    const text = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'text/html');
+    const baseUrl = jogo.url.substring(0, jogo.url.lastIndexOf('/') + 1);
+    
+    const assets = [
+      ...Array.from(doc.querySelectorAll('script[src]')).map(s => s.getAttribute('src')),
+      ...Array.from(doc.querySelectorAll('link[href]')).map(l => l.getAttribute('href')),
+      ...Array.from(doc.querySelectorAll('img[src]')).map(i => i.getAttribute('src'))
+    ];
+
+    assets.forEach(asset => {
+      if (!asset) return;
+      if (!asset.startsWith('http') && !asset.startsWith('//') && !asset.startsWith('data:')) {
+        urlsToDelete.push(baseUrl + asset);
+      } else if (asset.includes('unpkg.com') || asset.includes('cdnjs.cloudflare.com')) {
+        urlsToDelete.push(asset);
+      }
+    });
+
+    const scriptTexts = Array.from(doc.querySelectorAll('script')).map(s => s.textContent);
+    scriptTexts.forEach(t => {
+      const match = t.match(/player\.load\("([^"]+)"\)/) || t.match(/\.load\(['"]([^'"]+\.swf)['"]\)/);
+      if (match && match[1]) urlsToDelete.push(baseUrl + match[1]);
+    });
+
+    if (typeof jogo.download === 'string') urlsToDelete.push(jogo.download);
+
+    await Promise.all(urlsToDelete.map(url => cache.delete(url)));
+    
+    localStorage.removeItem('downloaded-' + jogo.id);
+    updateDownloadBtn();
+  } catch (err) {
+    console.error('Failed to delete game:', err);
+    updateDownloadBtn();
+  } finally {
+    dlBtn.classList.remove('loading');
+    dlBtn.style.pointerEvents = 'auto';
   }
 }
 
@@ -659,10 +721,7 @@ async function cacheGame(jogo) {
     ));
     
     localStorage.setItem('downloaded-' + jogo.id, 'true');
-    dlBtn.textContent = '✓';
-    dlBtn.title = i18n[displayLang].btnBaixado || 'Baixado';
-    dlBtn.classList.remove('loading');
-    dlBtn.classList.add('active');
+    updateDownloadBtn();
   } catch (err) {
     console.error('Failed to cache game:', err);
     dlBtn.textContent = '❌';
@@ -680,29 +739,25 @@ async function iniciarDownload() {
   if (!jogoAtual) return;
 
   if (jogoAtual.type === 'self') {
-    await cacheGame(jogoAtual);
+    const downloaded = localStorage.getItem('downloaded-' + jogoAtual.id);
+    if (downloaded) {
+      await deletarDownload(jogoAtual);
+    } else {
+      await cacheGame(jogoAtual);
+    }
     return;
   }
 
   const dl = jogoAtual.download;
-  if (!dl) return;
+  if (!dl || typeof dl !== 'object') return;
 
-  if (typeof dl === 'string') {
-    const a = document.createElement('a');
-    a.href = dl;
-    a.download = '';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  } else if (typeof dl === 'object') {
-    const os = getOS();
-    let url = '';
-    if ((os === 'Windows' || os === 'Linux' || os === 'MacOS') && dl.steam) url = dl.steam;
-    else if (os === 'Android' && dl.android) url = dl.android;
-    else if (os === 'iOS' && dl.ios) url = dl.ios;
-    if (!url) url = dl.steam || dl.android || dl.ios;
-    if (url) window.open(url, '_blank');
-  }
+  const os = getOS();
+  let url = '';
+  if ((os === 'Windows' || os === 'Linux' || os === 'MacOS') && dl.steam) url = dl.steam;
+  else if (os === 'Android' && dl.android) url = dl.android;
+  else if (os === 'iOS' && dl.ios) url = dl.ios;
+  if (!url) url = dl.steam || dl.android || dl.ios;
+  if (url) window.open(url, '_blank');
 }
 
 function getOS() {
